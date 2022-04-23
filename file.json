@@ -1,9 +1,8 @@
 [
   {
-    "name" : "baked beans X",
-    "price" : 0.40,
-    "image" : "beans.jpg",
-    "type" : "vegetables"
+    "name" : "Lazuli",
+    "age" : 20,
+    "type" : "Cybernetic"
   },
   {
     "name" : "hot dogs",
