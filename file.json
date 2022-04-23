@@ -2,16 +2,16 @@
     {
       "name": "George",
       "age": 31,
-      "career": "Developer"
+      "height": "1.70"
     },
     {
       "name": "Life",
       "age": 5,
-      "career": "Pet"
+      "height": "0.22"
     },
     {
-      "name": "Lazuli",
-      "age": 20,
-      "career": "Cyber Warrior"
+      "name": "Kid",
+      "age": 6,
+      "height": "0.26"
     }
 ]
