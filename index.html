@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Configuração Do Textastic Para O Pages: v1: width=482px; v2: width=?px -->
+<title>Development</title>
+<link href='styles/gmes_normalize.css' rel='stylesheet'> <!-- -->
+<!-- <link href='styles/globalAlternativeBoxModel.css' rel='stylesheet'> -->
+<link href='styles/setup_pages.css' rel='stylesheet'> <!-- -->
+<!-- <link href='styles/setup_textastic.css' rel='stylesheet'> -->
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<script src="gmes.js"></script>
+<style> ::selection { color: hsl(195, 100%, 49%); background: hsl(195, 100%, 95%); } 
+
+
+
+</style>
+</head>
+<!-- Ruler:<e style="display: block; background-color: black; color: white; text-align: center; margin: 0; font-size: 13px; border-radius: 4px;">482px</e> --> 
+<body>
+
+<p>
+    <button id="start">Click to start request</button>
+    <button id="reload">Reload</button>
+</p>
+
+<pre id="log"></pre>
+
+<script>
+
+start.addEventListener('click', function() { 
+
+    const xhr = new XMLHttpRequest()
+
+    xhr.open('GET', 'https://raw.githubusercontent.com/mdn/content/main/files/en-us/_wikihistory.json')
+
+    xhr.send()
+
+    log.textContent = `Started XHR request\n`
+
+    // O evento loadend é acionado quando uma solicitação é concluída.
+
+    xhr.addEventListener('loadend', function() { 
+
+
+
+
+        var duration = 2000 // ms
+
+        var  timestamp_firstRepetition
+                
+        function step(timestamp) {
+            
+            if (timestamp_firstRepetition === undefined) { 
+                timestamp_firstRepetition = timestamp  
+            }
+            
+            var elapsed = timestamp - timestamp_firstRepetition
+
+            /* 'Math.min()' garante que 't' pare exatamente 
+            no valor definido em 'duration': */
+            var $t = Math.min(elapsed, duration)
+
+            // ─────── Código Da Animação ────────
+
+            if ($t === duration) {
+
+                log.textContent += `Finished with status: ${xhr.status}`
+            }
+            
+            // ─────────────────────────
+
+            if ($t < duration) { requestAnimationFrame(step) }
+        }
+
+        window.requestAnimationFrame(step)
+
+
+        
+        
+    })
+})
+
+reload.addEventListener('click', function() {
+
+    log.textContent = ''
+    document.location.reload()
+})
+
+
+
+
+
+
+
+
+
+</script><!-- console.log('--------------------------------------------------------------------------------') -->
+</body>
+</html>
+
+<!--
+    VS Code: Para selecionar várias palavras idênticas, selecione uma e fique fazendo Ctrl + D.
+
+     Emmets: Element#ID_$@I.Class_1.Class_2[Atrib_1=... Atrib_2]{Content $}*N
+
+     for (var i = 0; i < .length; i++) { }
+
+     hsla(0, 100%, 50%, 0.)
+
+     Referências De Entidade de Caracteres:
+     Espaço: &nbsp; | <: &lt;
+
+     Fontes Seguras da Web:
+     font-family: 'Times New Roman', Times, Georgia, Helvetica, Arial, Verdana, 'Courier New', Courier;
+
+     Texto genérico 1:  Abcde fghij klmno pqrst uvwxyz.
+
+     Texto genérico 2:  ABCDE FGHIJ KLMNO PQRST UVWXYZ.
+
+     Configuração Do Aplicativo Textastic:
+     Font: Menlo; Font Size: 11 pt
+
+     ⇔
+▼
+     ►
+
+/*
+────────────────────────────────────────────────────
+TODO:
+──────────────────────────────────────────────────── */
+
+/*
+──────────────────────────
+TODO:    ►
+────────────────────────── */
+
+// ────────────────────────────────────────────────────
+// TODO:
+// ────────────────────────────────────────────────────
+
+// ──────────────────────────
+// TODO:    ►
+// ──────────────────────────
+
+// ─────────────────────────
+// Tópico no Pages
+// ─────────────────────────
+
+// ─────────────
+// ► Subtópico no Pages
+// ─────────────
+
+-->
+
+<!--
+
+/*
+──────────────────────────────────────────────────────
+TODO: JS Framework
+────────────────────────────────────────────────────── */
+
+[HTML]:
+
+<p>P</p>
+
+<span>span 1</span> - <span>span 2</span>
+
+[JS]:
+
+var d = document
+e = document.querySelector
+es = document.querySelectorAll
+
+// Testes:
+
+document.querySelector('p').textContent = 'Alterado!'
+e('p').style = 'color: white; background-color: red'
+
+console.log(es('span'))
+
+-->
+
+<!-- Por isso no meu Framework?
+
+[CSS]:
+
+span * {
+    font-size: 16px;
+}
+
+span {
+    font-size: 0;
+}
+
+[HTML de teste]:
+
+<span>
+    k
+    <b>k</b>
+</span>
+
+---
+
+<span>
+    <span>k</span>
+    <b>k</b>
+</span>
+
+[Execução]:
+
+k
+---
+k
+
+-->
+
+<!-- <img src="[+]/TS/Taylor Swift Sexy.webp" alt="" style="width: 354px;"> <!-- x2 -->
