@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Mac mini",
+        "processor": "2.5GHz",
+        "storage": "500GB",
+        "memory": "4GB"
+    },
+    {
+        "name": "iPhone 11",
+        "processor": "2.65GHz",
+        "storage": "128GB",
+        "memory": "4GB"
+    }
+]
