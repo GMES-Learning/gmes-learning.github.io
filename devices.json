@@ -11,5 +11,11 @@
         "OS": "iOS 13",
         "chip": "A13 Bionic",
         "storages": "128 GB"
+    },
+    {
+        "name": "iPad mini",
+        "OS": "iOS 6",
+        "chip": "A5 dual-core",
+        "storages": "32 GB"
     }
 ]
