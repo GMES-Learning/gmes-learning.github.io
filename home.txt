@@ -1,0 +1,17 @@
+[
+    {
+      "name": "George",
+      "age": 31,
+      "height": "1.70"
+    },
+    {
+      "name": "Life",
+      "age": 5,
+      "height": "0.22"
+    },
+    {
+      "name": "Kid",
+      "age": 6,
+      "height": "0.26"
+    }
+]
