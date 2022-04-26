@@ -1,14 +1,15 @@
 [
     {
         "name": "Mac mini",
-        "processor": "2.5GHz",
-        "storage": "500GB",
-        "memory": "4GB"
+        "OS": "OS X v10.8",
+        "processor": "2,5 GHz Intel Core i5 Dual-Core",
+        "storages": "500GB or 1TB",
+        "memory": "4GB (dois módulos de 2GB) de memória DDR3, 1600MHz"
     },
     {
         "name": "iPhone 11",
-        "processor": "2.65GHz",
-        "storage": "128GB",
-        "memory": "4GB"
+        "OS": "iOS 13",
+        "chip": "A13 Bionic",
+        "storages": "64GB, 128GB, or 256GB"
     }
 ]
