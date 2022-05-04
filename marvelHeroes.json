@@ -1,0 +1,41 @@
+{
+    "teamName": "Avengers",
+    "formed": 2012,
+    "active": true,
+    "members": [
+        {
+            "name": "Iron Man",
+            "secretIdentity": "Tony Stark",
+            "age": 53,
+            "powers": [
+                "Repulsor rays",
+                "Uni-beam",
+                "Energy shield",
+                "Flight"
+            ]
+        },
+
+        {
+            "name": "Captain America",
+            "secretIdentity": "Steve Rogers",
+            "age": 38,
+            "powers": [
+                "Super strength",
+                "Damage resistance",
+                "Vibranium shield"
+            ]
+        },
+        
+        {
+            "name": "Spider man",
+            "secretIdentity": "Peter Parker",
+            "age": 17,
+            "powers": [
+                "Spider web",
+                "Super strength",
+                "Superhuman reflexes",
+                "Spider sense"
+            ]
+        }
+    ]
+}
