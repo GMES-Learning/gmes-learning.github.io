@@ -7,13 +7,19 @@
     <meta charset="utf-8">
     <style>
 
-        p, li, a {
+        div, p, li, a {
             font-size: 19px;
             font-family: 'Times New Roman', Times, Georgia, Helvetica, Arial, Verdana, 'Courier New', Courier;
         }
 
         li + li {
             margin-top: 8px;
+        }
+
+        .forbidden {
+
+            color: red;
+            text-decoration: line-through;
         }
 
     </style>
@@ -25,13 +31,14 @@
     <div style="width: fit-content; margin: auto;">
         <ol id="filesList">
             <li><a href="number.json"></a></li>
-            <li><a href="bigInt.json"></a></li>
+            <li class="forbidden"><a href="bigInt.json"></a></li>
             <li><a href="string.json"></a></li>
             <li><a href="boolean.json"></a></li>
             <li><a href="array.json"></a></li>
             <li><a href="object.json"></a></li>
-            <li><a href="NaN.json"></a></li>
-            <li><a href="undefined.json"></a></li>
+            <li class="forbidden"><a href="NaN.json"></a></li>
+            <li class="forbidden"><a href="undefined.json"></a></li>
+            <li class="forbidden"><a href="Infinity.json"></a></li>
             <li><a href="null.json"></a></li>
             <li><a href="devices.json"></a></li>
             <li><a href="dogs.json"></a></li>
