@@ -42,7 +42,7 @@
 
 <script>
 
-function getFileName(url, wantType) {
+function getFileName(url, withType) { // withType é opcional, booleano, e false se omitido.
 
     var index_bar = url.indexOf("/")
 
@@ -53,18 +53,18 @@ function getFileName(url, wantType) {
         index_bar = url.indexOf("/")
     }
 
-    if (wantType) {
+    if (withType) {
         
-        name = url
+        filename = url
 
     } else {
         
         var index_dot = url.indexOf(".")
 
-        name = url.slice(0, index_dot)        
+        filename = url.slice(0, index_dot)        
     }
 
-    return name
+    return filename
 }
 
 filesList.querySelectorAll(':scope li').forEach(function (item) {
