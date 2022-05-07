@@ -16,13 +16,21 @@
             text-decoration: none;
         }
 
-        li + li {
-            margin-top: 8px;
+        li  {
+            height: 36px;
         }
 
-        .forbidden {
+        .error::after {
 
-            display: none;
+            content: 'Error';
+            display: inline-block;
+            font-size: 15px;
+            padding: 2px 4px;
+            margin-left: 7px;
+            color: hsl(0, 100%, 46%);
+            border: 1px solid hsl(0, 100%, 74%);
+            border-radius: 1000px;
+            background: hsl(0, 100%, 98%);
         }
 
     </style>
@@ -34,14 +42,14 @@
     <div style="width: fit-content; margin: auto;">
         <ol id="filesList">
             <li><a href="number.json"></a></li>
-            <li class="forbidden"><a href="bigInt.json"></a></li>
+            <li class="error"><a href="bigInt.json"></a></li>
             <li><a href="string.json"></a></li>
             <li><a href="boolean.json"></a></li>
             <li><a href="array.json"></a></li>
             <li><a href="object.json"></a></li>
-            <li class="forbidden"><a href="NaN.json"></a></li>
-            <li class="forbidden"><a href="undefined.json"></a></li>
-            <li class="forbidden"><a href="Infinity.json"></a></li>
+            <li class="error"><a href="NaN.json"></a></li>
+            <li class="error"><a href="undefined.json"></a></li>
+            <li class="error"><a href="Infinity.json"></a></li>
             <li><a href="null.json"></a></li>
             <li><a href="devices.json"></a></li>
             <li><a href="dogs.json"></a></li>
