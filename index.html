@@ -7,6 +7,11 @@
     <meta charset="utf-8">
     <style>
 
+        p, li, a {
+            font-size: 19px;
+            font-family: 'Times New Roman', Times, Georgia, Helvetica, Arial, Verdana, 'Courier New', Courier;
+        }
+
         li + li {
             margin-top: 8px;
         }
@@ -62,9 +67,7 @@ function getFileName(url, wantType) {
     return name
 }
 
-filesList_itens = document.querySelectorAll(':scope #filesList li')
-
-filesList_itens.forEach(function (item) {
+filesList.querySelectorAll(':scope li').forEach(function (item) {
 
     item.querySelector(':scope a').textContent = getFileName(item.querySelector(':scope a').href, true)
 })
