@@ -6,17 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
 </head>
-<body style="text-align: center;">
+<body>
 
-    <h1>GMES - Learning Repository</h1>
+    <h1 style="text-align: center;">GMES - Learning Repository</h1>
 
-    <ul style="list-style: none;">
-        <li><a href="devices.json">devices.json</a></li>
-        <li><a href="dogs.json">dogs.json</a></li>
-        <li><a href="dogs.txt">dogs.txt</a></li>
-        <li><a href="marvelHeroes.json">marvelHeroes.json</a></li>
-        <li><a href="superheroes.json">MDN: superheroes.json</a></li>
-    </ul>
+    <div style="width: fit-content; margin: auto;">
+        <ol id="filesList">
+            <li><a href="number.json"></a></li>
+            <li><a href="bigInt.json"></a></li>
+            <li><a href="string.json"></a></li>
+            <li><a href="boolean.json"></a></li>
+            <li><a href="array.json"></a></li>
+            <li><a href="object.json"></a></li>
+            <li><a href="NaN.json"></a></li>
+            <li><a href="undefined.json"></a></li>
+            <li><a href="null.json"></a></li>
+            <li><a href="devices.json"></a></li>
+            <li><a href="dogs.json"></a></li>
+            <li><a href="dogs.txt"></a></li>
+            <li><a href="marvelHeroes.json"></a></li>
+        </ol>
+    </div>
 
+<script>
+
+function getFileName(url, wantType) {
+
+    var index_bar = url.indexOf("/")
+
+    while(index_bar !== -1) {
+
+        url = url.slice(index_bar + 1)
+
+        index_bar = url.indexOf("/")
+    }
+
+    if (wantType) {
+        
+        name = url
+
+    } else {
+        
+        var index_dot = url.indexOf(".")
+
+        name = url.slice(0, index_dot)        
+    }
+
+    return name
+}
+
+filesList_itens = document.querySelectorAll(':scope #filesList li')
+
+filesList_itens.forEach(function (item) {
+
+    item.querySelector(':scope a').textContent = getFileName(item.querySelector(':scope a').href, true)
+})
+
+</script>
 </body> 
 </html>
