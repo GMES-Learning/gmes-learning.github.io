@@ -31,7 +31,7 @@ worker.addEventListener('message', message => {
 
 document.querySelector('#reload').addEventListener('click', () => {
 
-    document.querySelector('#user-input').value = 'Try typing in here immediately after pressing "Generate primes"'
+    //document.querySelector('#user-input').value = 'Try typing in here immediately after pressing "Generate primes"'
 
     document.location.reload()
 })
