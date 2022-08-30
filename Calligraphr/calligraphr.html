@@ -1,0 +1,2304 @@
+<!DOCTYPE html>
+<html lang="pt-br"> <!-- en -->
+<head>
+    <meta charset="utf-8">
+    <title>Calligraphr Sheet Generator</title>
+    <meta name = "apple-mobile-web-app-title" content = "Calligraphr Sheet Generator"><!-- App Name --> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="George Maxwell">
+    <meta name="description" content="Descrição da página. Especificar uma descrição que inclua palavras-chave relacionadas ao conteúdo da página pode ajudar a tornar a página mais alta nas pesquisas realizadas nos mecanismos de busca.">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <!--<link rel="apple-touch-icon" href="../apple-touch-icon.png">-->
+
+    <link href='../../Tec OP/hi-techCore/styles/css/downloadFonts.css' rel='stylesheet'><!--  Deve ficar antes de qualquer CSS -->
+    <link href='../../Tec OP/hi-techCore/styles/css/normalize.css' rel='stylesheet'>  
+    <link href='../../Tec OP/hi-techCore/styles/css/gmes_normalize.css' rel='stylesheet'>
+    <link href='../../Tec OP/hi-techCore/styles/css/defaults.css' rel='stylesheet'>
+
+<style>
+
+body {
+    font-family: 'Times New Roman', Times, Georgia, serif;
+    font-size: 19px;
+    line-height: 1.5;
+}
+
+.charsBox {
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+.charsBox .normals {
+    white-space: pre-line;
+    word-break: break-all;
+    letter-spacing: 4px;
+}
+
+.charsBox .ligatures:not(:empty) {
+    margin-top: 9px;
+}
+
+.verticalPositioning {
+    font-size: 189px !important;
+    text-align: center;
+    outline: 1px solid black;
+}
+
+.quality {
+    font-size: 164px !important;
+    text-align: center;
+    outline: 1px solid black
+}
+
+.sheetsGroup {
+    width: 100%;
+}
+
+.sheet {
+    /* width: 100%;
+    height: 100%;
+    max-width: 1667px;
+    max-height: 2367px; */
+    
+    width: 1667px;
+    height: 2367px;
+    border: 1px solid hsla(0, 0%, 0%, 0);
+    margin: auto;
+}
+
+.size3 .sheet:nth-of-type(1) { background-image: url('images/templates/size3/normals/412Chars/01.png'); }
+.size3 .sheet:nth-of-type(2) { background-image: url('images/templates/size3/normals/412Chars/02.png'); }
+.size3 .sheet:nth-of-type(3) { background-image: url('images/templates/size3/normals/412Chars/03.png'); }
+.size3 .sheet:nth-of-type(4) { background-image: url('images/templates/size3/normals/412Chars/04.png'); }
+.size3 .sheet:nth-of-type(5) { background-image: url('images/templates/size3/normals/412Chars/05.png'); }
+.size3 .sheet:nth-of-type(6) { background-image: url('images/templates/size3/normals/412Chars/06.png'); }
+.size3 .sheet:nth-of-type(7) { background-image: url('images/templates/size3/normals/412Chars/07.png'); }
+.size3 .sheet:nth-of-type(8) { background-image: url('images/templates/size3/ligatures/basic/01.png'); }
+.size3 .sheet:nth-of-type(9) { background-image: url('images/templates/size3/ligatures/basic/02.png'); }
+.size3 .sheet:nth-of-type(10) { background-image: url('images/templates/size3/ligatures/basic/03.png'); }
+/* 
+.size7 .sheet:nth-of-type(1) { background-image: url('images/templates/size7/normals/412Chars/01.png'); }
+.size7 .sheet:nth-of-type(2) { background-image: url('images/templates/size7/normals/412Chars/02.png'); }
+.size7 .sheet:nth-of-type(3) { background-image: url('images/templates/size7/normals/412Chars/03.png'); }
+.size7 .sheet:nth-of-type(4) { background-image: url('images/templates/size7/normals/412Chars/04.png'); }
+.size7 .sheet:nth-of-type(5) { background-image: url('images/templates/size7/normals/412Chars/05.png'); }
+.size7 .sheet:nth-of-type(6) { background-image: url('images/templates/size7/normals/412Chars/06.png'); }
+.size7 .sheet:nth-of-type(7) { background-image: url('images/templates/size7/normals/412Chars/07.png'); }
+.size7 .sheet:nth-of-type(8) { background-image: url('images/templates/size7/normals/412Chars/08.png'); }
+.size7 .sheet:nth-of-type(9) { background-image: url('images/templates/size7/normals/412Chars/09.png'); }
+.size7 .sheet:nth-of-type(10) { background-image: url('images/templates/size7/normals/412Chars/010.png'); }
+.size7 .sheet:nth-of-type(11) { background-image: url('images/templates/size7/normals/412Chars/011.png'); }
+.size7 .sheet:nth-of-type(12) { background-image: url('images/templates/size7/normals/412Chars/012.png'); }
+.size7 .sheet:nth-of-type(13) { background-image: url('images/templates/size7/normals/412Chars/013.png'); }
+.size7 .sheet:nth-of-type(14) { background-image: url('images/templates/size7/normals/412Chars/014.png'); }
+.size7 .sheet:nth-of-type(15) { background-image: url('images/templates/size7/normals/412Chars/015.png'); }
+.size7 .sheet:nth-of-type(16) { background-image: url('images/templates/size7/normals/412Chars/016.png'); }
+.size7 .sheet:nth-of-type(17) { background-image: url('images/templates/size7/normals/412Chars/017.png'); }
+.size7 .sheet:nth-of-type(18) { background-image: url('images/templates/size7/normals/412Chars/018.png'); }
+.size7 .sheet:nth-of-type(19) { background-image: url('images/templates/size7/normals/412Chars/019.png'); }
+.size7 .sheet:nth-of-type(20) { background-image: url('images/templates/size7/normals/412Chars/020.png'); }
+.size7 .sheet:nth-of-type(21) { background-image: url('images/templates/size7/normals/412Chars/021.png'); }
+.size7 .sheet:nth-of-type(22) { background-image: url('images/templates/size7/normals/412Chars/022.png'); }
+.size7 .sheet:nth-of-type(23) { background-image: url('images/templates/size7/normals/412Chars/023.png'); }
+.size7 .sheet:nth-of-type(24) { background-image: url('images/templates/size7/normals/412Chars/024.png'); }
+.size7 .sheet:nth-of-type(25) { background-image: url('images/templates/size7/normals/412Chars/025.png'); }
+.size7 .sheet:nth-of-type(26) { background-image: url('images/templates/size7/normals/412Chars/026.png'); }
+.size7 .sheet:nth-of-type(27) { background-image: url('images/templates/size7/normals/412Chars/027.png'); }
+.size7 .sheet:nth-of-type(28) { background-image: url('images/templates/size7/normals/412Chars/028.png'); }
+ */
+.grid {
+    margin-left: 33px;
+    margin-top: 129px;
+}
+
+.cell {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.charLabel {
+    width: 100%;
+    border-top: 1px solid hsla(0, 100%, 50%, 0);
+    border-left: 1px solid hsla(0, 100%, 50%, 0);
+}
+
+.charCanvas {
+    width: 100%;
+    border-top: 1px solid hsla(0, 100%, 50%, 0);
+    border-left: 1px solid hsla(0, 100%, 50%, 0);
+}
+
+.charBG {
+    width: 100%;
+    height: 100%;
+}
+
+.charDraw {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+/*····································································◈ Build characters */
+
+.charPiece {
+    font-family: inherit;
+    font-size: inherit !important;
+    transform: inherit;
+    position: absolute;
+}
+
+.arialSettings {
+    font-family: "Arial";
+    transform: scale(1.01694915);
+}
+
+/*····································································◈  Sizes: */
+
+.size3 .cell {
+    height: 260px;
+}
+
+.size3 .sheets_normalsChars_cell {
+    width: 200px;
+}
+
+.size3 .sheets_ligaturesChars_cell {
+    width: 400px;
+}
+
+.size3 .charLabel {
+    height: 42px;
+}
+
+.size3 .charCanvas {
+    height: 218px;
+}
+
+.size7 .cell {
+    width: 400px;
+    height: 520px;
+}
+
+.size7 .charLabel {
+    height: 84px;
+}
+
+.size7 .charCanvas {
+    height: 436px;
+}
+
+/*····································································◈  Buttons: */
+
+.show_btns {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    padding: 2px 5px;
+    border: 4px outset hsl(0, 0%, 96%);
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 86%);
+    cursor: pointer;
+}
+
+.show_btns:active, .show_btns_activated {
+    border: 4px inset hsl(0, 0%, 100%);
+    background-color: hsl(0, 0%, 78%);
+}
+
+.show_btns:focus {
+    outline: 0px dotted DeepSkyBlue;
+}
+
+.cellEmpty {
+    background: 0 !important;
+}
+
+</style>
+</head>
+<body>
+
+    <main>
+
+        <h1>Calligraphr Sheets Generator</h1>
+
+        <!-- <p style="font-family: 'Verdial'; font-size: 189px; text-align: center; outline: 1px solid black; word-break: break-all;">℃ Â x⁺⁽⁰⁾¹ ✦ Lk x² x⁺⁻⁼⁽⁾⁰¹²³⁴⁵⁶⁷⁸⁹ᴬᴮᴰᴱᵃᵇᵈᵉᵍᵏᵐⁿᵒᵖᵗᵘᵛᵚᵡ x₊₋₌₍₎₀₁₂₃₄₅₆₇₈₉g X ₍ ₎ ├ │ █</p> -->
+
+        <div class="central">
+
+            <h2>Web App</h2>
+
+            <div>
+                <p>
+                    Os níveis de tamanho das células dos caracteres das folhas de modelo vão de 1-7. O tamanho padrão é 3.
+                    
+                    <div class="lb"></div>
+
+                    <img src="images/templates/sizesOfTemplateCells.svg" alt="" style="display: block; margin: auto; border: 1px solid silver; border-radius: 12px; padding: 12px 0;">
+                    
+                    <div class="lb2"></div>
+                </p>
+
+                <p>Quanto maior forem as células da folha, maior será a qualidade dos caracteres do arquivo de fonte final para um tamanho de fonte grande.</p>
+
+                <p>
+                    Quando o caractere 'X' (maiúsculo) está centralizado verticalmente em sua própria linha, 
+                    quanto maior for o nível de tamanho das células, mais os caracteres ficam cortados na parte 
+                    de baixo.
+                </p>
+
+                <p>
+                    Resolvi usar o tamanho 3 (padrão), pois corta muito pouco embaixo, e tem uma qualidade 
+                    aceitável mesmo para uma letra grande (a não ser que seja extremamente grande, no ponto 
+                    em que não se costuma utilizar na prática).
+                </p>
+                
+                <p>
+                    É necessário configurar manualmente os espaçamentos dos caracteres √, ∛, ∜, ├, ─, e └, e a ligadura --.
+                </p>
+            </div>
+
+            <h2>Verificações</h2>
+
+            <h3>Caracteres</h3>
+
+            <div class="hx_caracteres_content"></div>
+
+            <h3>Tamanho Padrão E Prática - Lorens</h3>
+
+            <div class="lorensBox"></div>
+
+            <h3>Posicionamento Vertical</h3>
+
+            <div>
+                <p>Verificar se o 'X' está centralizado verticalmente em sua linha<!--  no mesmo tamanho dos caracteres das células das folhas -->:</p>
+
+                <p class="verticalPositioning">X  <!--x ├ g ₍ ₎ │ █ --></p>
+            </div>    
+            
+            <h3>Qualidade</h3>
+            
+            <div>
+                <p class="quality">8-.Ã!(g∲</p>
+
+                <p>Obs.: Os caracteres acima tem o mesmo valor de 'font-size' dos caracteres nas folhas.</p>
+            </div>
+
+
+
+<!-- 
+            <dl class="extra">
+                <div><dt>◉ Termo 1: </dt><dd>Descrição 1.</dd></div>
+
+                <div>
+                    <dt>Lista 2</dt>
+                    <dd>
+                    
+                        <dl>
+                            <div><dt>Termo L2-1: </dt><dd>Descrição L2-1.</dd></div>
+                            <div>
+                                <dt>Lista 3</dt>
+                                <dd>
+
+                                    <dl>
+                                        <div><dt>◈ Termo L3-1: </dt><dd>Descrição L3-1.</dd></div>
+                                        <div>
+                                            <dt>Lista 4</dt>
+                                            <dd>
+
+                                                <dl>
+                                                    <div><dt>Termo L4-1: </dt><dd>Descrição L4-1.</dd></div>
+                                                    <div><dt>Termo L4-2: </dt><dd>Descrição L4-2.</dd></div>
+                                                </dl>
+
+                                            </dd>
+                                        </div>
+                                    </dl>
+
+                                </dd>
+                            </div>
+                        </dl>
+
+                    </dd>
+                </div>
+
+                <div><dt>Termo 3: </dt><dd>Descrição 3.</dd></div>
+            </dl> -->
+
+            
+
+
+
+
+
+        </div>
+
+        <h2>Folhas</h2>
+
+        <div style="text-align: center;"><button class="show_btns btnCellsLines">Cells Lines</button></div>
+        
+        <div class="sheetsGroup size3"><!--  style="font-weight: bold; font-style: italic;" -->
+       
+            <!-- 
+            <div class="sheet">
+                <div class="grid">
+                    <div class="cell">
+                        <div class="charLabel"></div>
+                        <div class="charCanvas">
+                            <div class="charBG">
+                                <div class="charDraw">!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="charLabel"></div>
+                        <div class="charCanvas">
+                            <div class="charBG">
+                                <div class="charDraw">"</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="charLabel"></div>
+                        <div class="charCanvas">
+                            <div class="charBG">
+                                <div class="charDraw">#</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sheet">
+                <div class="grid">
+                    <div class="cell">
+                        <div class="charLabel"></div>
+                        <div class="charCanvas">
+                            <div class="charBG">
+                                <div class="charDraw">!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="charLabel"></div>
+                        <div class="charCanvas">
+                            <div class="charBG">
+                                <div class="charDraw">"</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="charLabel"></div>
+                        <div class="charCanvas">
+                            <div class="charBG">
+                                <div class="charDraw">#</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sheet">
+                <div class="grid">
+                    <div class="cell">
+                        <div class="charLabel"></div>
+                        <div class="charCanvas">
+                            <div class="charBG">
+                                <div class="charDraw">!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="charLabel"></div>
+                        <div class="charCanvas">
+                            <div class="charBG">
+                                <div class="charDraw">"</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="charLabel"></div>
+                        <div class="charCanvas">
+                            <div class="charBG">
+                                <div class="charDraw">#</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+        <!--  
+        <ul id="templates-glyphs-list"><li title="U+0021: EXCLAMATION MARK" class="card card-1"><div class="glyph-wrap clickable">!</div></li>
+            <li title="U+0022: QUOTATION MARK" class="card card-1"><div class="glyph-wrap clickable">"</div></li>
+            <li title="U+0023: NUMBER SIGN" class="card card-1"><div class="glyph-wrap clickable">#</div></li>
+            <li title="U+0024: DOLLAR SIGN" class="card card-1"><div class="glyph-wrap clickable">$</div></li>
+            <li title="U+0025: PERCENT SIGN" class="card card-1"><div class="glyph-wrap clickable">%</div></li>
+            <li title="U+0026: AMPERSAND" class="card card-1"><div class="glyph-wrap clickable">&amp;</div></li>
+            <li title="U+0027: APOSTROPHE" class="card card-1"><div class="glyph-wrap clickable">'</div></li>
+            <li title="U+0028: LEFT PARENTHESIS" class="card card-1"><div class="glyph-wrap clickable">(</div></li>
+            <li title="U+0029: RIGHT PARENTHESIS" class="card card-1"><div class="glyph-wrap clickable">)</div></li>
+            <li title="U+002A: ASTERISK" class="card card-1"><div class="glyph-wrap clickable">*</div></li>
+            <li title="U+002B: PLUS SIGN" class="card card-1"><div class="glyph-wrap clickable">+</div></li>
+            <li title="U+002C: COMMA" class="card card-1"><div class="glyph-wrap clickable">,</div></li>
+            <li title="U+002D: HYPHEN-MINUS" class="card card-1"><div class="glyph-wrap clickable">-</div></li>
+            <li title="U+002E: FULL STOP" class="card card-1"><div class="glyph-wrap clickable">.</div></li>
+            <li title="U+002F: SOLIDUS" class="card card-1"><div class="glyph-wrap clickable">/</div></li>
+            <li title="U+0030: DIGIT ZERO" class="card card-1"><div class="glyph-wrap clickable">0</div></li>
+            <li title="U+0031: DIGIT ONE" class="card card-1"><div class="glyph-wrap clickable">1</div></li>
+            <li title="U+0032: DIGIT TWO" class="card card-1"><div class="glyph-wrap clickable">2</div></li>
+            <li title="U+0033: DIGIT THREE" class="card card-1"><div class="glyph-wrap clickable">3</div></li>
+            <li title="U+0034: DIGIT FOUR" class="card card-1"><div class="glyph-wrap clickable">4</div></li>
+            <li title="U+0035: DIGIT FIVE" class="card card-1"><div class="glyph-wrap clickable">5</div></li>
+            <li title="U+0036: DIGIT SIX" class="card card-1"><div class="glyph-wrap clickable">6</div></li>
+            <li title="U+0037: DIGIT SEVEN" class="card card-1"><div class="glyph-wrap clickable">7</div></li>
+            <li title="U+0038: DIGIT EIGHT" class="card card-1"><div class="glyph-wrap clickable">8</div></li>
+            <li title="U+0039: DIGIT NINE" class="card card-1"><div class="glyph-wrap clickable">9</div></li>
+            <li title="U+003A: COLON" class="card card-1"><div class="glyph-wrap clickable">:</div></li>
+            <li title="U+003B: SEMICOLON" class="card card-1"><div class="glyph-wrap clickable">;</div></li>
+            <li title="U+003C: LESS-THAN SIGN" class="card card-1"><div class="glyph-wrap clickable">&lt;</div></li>
+            <li title="U+003D: EQUALS SIGN" class="card card-1"><div class="glyph-wrap clickable">=</div></li>
+            <li title="U+003E: GREATER-THAN SIGN" class="card card-1"><div class="glyph-wrap clickable">&gt;</div></li>
+            <li title="U+003F: QUESTION MARK" class="card card-1"><div class="glyph-wrap clickable">?</div></li>
+            <li title="U+0040: COMMERCIAL AT" class="card card-1"><div class="glyph-wrap clickable">@</div></li>
+            <li title="U+0041: LATIN CAPITAL LETTER A" class="card card-1"><div class="glyph-wrap clickable">A</div></li>
+            <li title="U+0042: LATIN CAPITAL LETTER B" class="card card-1"><div class="glyph-wrap clickable">B</div></li>
+            <li title="U+0043: LATIN CAPITAL LETTER C" class="card card-1"><div class="glyph-wrap clickable">C</div></li>
+            <li title="U+0044: LATIN CAPITAL LETTER D" class="card card-1"><div class="glyph-wrap clickable">D</div></li>
+            <li title="U+0045: LATIN CAPITAL LETTER E" class="card card-1"><div class="glyph-wrap clickable">E</div></li>
+            <li title="U+0046: LATIN CAPITAL LETTER F" class="card card-1"><div class="glyph-wrap clickable">F</div></li>
+            <li title="U+0047: LATIN CAPITAL LETTER G" class="card card-1"><div class="glyph-wrap clickable">G</div></li>
+            <li title="U+0048: LATIN CAPITAL LETTER H" class="card card-1"><div class="glyph-wrap clickable">H</div></li>
+            <li title="U+0049: LATIN CAPITAL LETTER I" class="card card-1"><div class="glyph-wrap clickable">I</div></li>
+            <li title="U+004A: LATIN CAPITAL LETTER J" class="card card-1"><div class="glyph-wrap clickable">J</div></li>
+            <li title="U+004B: LATIN CAPITAL LETTER K" class="card card-1"><div class="glyph-wrap clickable">K</div></li>
+            <li title="U+004C: LATIN CAPITAL LETTER L" class="card card-1"><div class="glyph-wrap clickable">L</div></li>
+            <li title="U+004D: LATIN CAPITAL LETTER M" class="card card-1"><div class="glyph-wrap clickable">M</div></li>
+            <li title="U+004E: LATIN CAPITAL LETTER N" class="card card-1"><div class="glyph-wrap clickable">N</div></li>
+            <li title="U+004F: LATIN CAPITAL LETTER O" class="card card-1"><div class="glyph-wrap clickable">O</div></li>
+            <li title="U+0050: LATIN CAPITAL LETTER P" class="card card-1"><div class="glyph-wrap clickable">P</div></li>
+            <li title="U+0051: LATIN CAPITAL LETTER Q" class="card card-1"><div class="glyph-wrap clickable">Q</div></li>
+            <li title="U+0052: LATIN CAPITAL LETTER R" class="card card-1"><div class="glyph-wrap clickable">R</div></li>
+            <li title="U+0053: LATIN CAPITAL LETTER S" class="card card-1"><div class="glyph-wrap clickable">S</div></li>
+            <li title="U+0054: LATIN CAPITAL LETTER T" class="card card-1"><div class="glyph-wrap clickable">T</div></li>
+            <li title="U+0055: LATIN CAPITAL LETTER U" class="card card-1"><div class="glyph-wrap clickable">U</div></li>
+            <li title="U+0056: LATIN CAPITAL LETTER V" class="card card-1"><div class="glyph-wrap clickable">V</div></li>
+            <li title="U+0057: LATIN CAPITAL LETTER W" class="card card-1"><div class="glyph-wrap clickable">W</div></li>
+            <li title="U+0058: LATIN CAPITAL LETTER X" class="card card-1"><div class="glyph-wrap clickable">X</div></li>
+            <li title="U+0059: LATIN CAPITAL LETTER Y" class="card card-1"><div class="glyph-wrap clickable">Y</div></li>
+            <li title="U+005A: LATIN CAPITAL LETTER Z" class="card card-1"><div class="glyph-wrap clickable">Z</div></li>
+            <li title="U+005B: LEFT SQUARE BRACKET" class="card card-1"><div class="glyph-wrap clickable">[</div></li>
+            <li title="U+005C: REVERSE SOLIDUS" class="card card-1"><div class="glyph-wrap clickable">\</div></li>
+            <li title="U+005D: RIGHT SQUARE BRACKET" class="card card-1"><div class="glyph-wrap clickable">]</div></li>
+            <li title="U+005F: LOW LINE" class="card card-1"><div class="glyph-wrap clickable">_</div></li>
+            <li title="U+0060: GRAVE ACCENT" class="card card-1"><div class="glyph-wrap clickable">`</div></li>
+            <li title="U+0061: LATIN SMALL LETTER A" class="card card-1"><div class="glyph-wrap clickable">a</div></li>
+            <li title="U+0062: LATIN SMALL LETTER B" class="card card-1"><div class="glyph-wrap clickable">b</div></li>
+            <li title="U+0063: LATIN SMALL LETTER C" class="card card-1"><div class="glyph-wrap clickable">c</div></li>
+            <li title="U+0064: LATIN SMALL LETTER D" class="card card-1"><div class="glyph-wrap clickable">d</div></li>
+            <li title="U+0065: LATIN SMALL LETTER E" class="card card-1"><div class="glyph-wrap clickable">e</div></li>
+            <li title="U+0066: LATIN SMALL LETTER F" class="card card-1"><div class="glyph-wrap clickable">f</div></li>
+            <li title="U+0067: LATIN SMALL LETTER G" class="card card-1"><div class="glyph-wrap clickable">g</div></li>
+            <li title="U+0068: LATIN SMALL LETTER H" class="card card-1"><div class="glyph-wrap clickable">h</div></li>
+            <li title="U+0069: LATIN SMALL LETTER I" class="card card-1"><div class="glyph-wrap clickable">i</div></li>
+            <li title="U+006A: LATIN SMALL LETTER J" class="card card-1"><div class="glyph-wrap clickable">j</div></li>
+            <li title="U+006B: LATIN SMALL LETTER K" class="card card-1"><div class="glyph-wrap clickable">k</div></li>
+            <li title="U+006C: LATIN SMALL LETTER L" class="card card-1"><div class="glyph-wrap clickable">l</div></li>
+            <li title="U+006D: LATIN SMALL LETTER M" class="card card-1"><div class="glyph-wrap clickable">m</div></li>
+            <li title="U+006E: LATIN SMALL LETTER N" class="card card-1"><div class="glyph-wrap clickable">n</div></li>
+            <li title="U+006F: LATIN SMALL LETTER O" class="card card-1"><div class="glyph-wrap clickable">o</div></li>
+            <li title="U+0070: LATIN SMALL LETTER P" class="card card-1"><div class="glyph-wrap clickable">p</div></li>
+            <li title="U+0071: LATIN SMALL LETTER Q" class="card card-1"><div class="glyph-wrap clickable">q</div></li>
+            <li title="U+0072: LATIN SMALL LETTER R" class="card card-1"><div class="glyph-wrap clickable">r</div></li>
+            <li title="U+0073: LATIN SMALL LETTER S" class="card card-1"><div class="glyph-wrap clickable">s</div></li>
+            <li title="U+0074: LATIN SMALL LETTER T" class="card card-1"><div class="glyph-wrap clickable">t</div></li>
+            <li title="U+0075: LATIN SMALL LETTER U" class="card card-1"><div class="glyph-wrap clickable">u</div></li>
+            <li title="U+0076: LATIN SMALL LETTER V" class="card card-1"><div class="glyph-wrap clickable">v</div></li>
+            <li title="U+0077: LATIN SMALL LETTER W" class="card card-1"><div class="glyph-wrap clickable">w</div></li>
+            <li title="U+0078: LATIN SMALL LETTER X" class="card card-1"><div class="glyph-wrap clickable">x</div></li>
+            <li title="U+0079: LATIN SMALL LETTER Y" class="card card-1"><div class="glyph-wrap clickable">y</div></li>
+            <li title="U+007A: LATIN SMALL LETTER Z" class="card card-1"><div class="glyph-wrap clickable">z</div></li>
+            <li title="U+007B: LEFT CURLY BRACKET" class="card card-1"><div class="glyph-wrap clickable">{</div></li>
+            <li title="U+007C: VERTICAL LINE" class="card card-1"><div class="glyph-wrap clickable">|</div></li>
+            <li title="U+007D: RIGHT CURLY BRACKET" class="card card-1"><div class="glyph-wrap clickable">}</div></li>
+            <li title="U+00A6" class="card card-1"><div class="glyph-wrap clickable">¦</div></li>
+            <li title="U+00A7" class="card card-1"><div class="glyph-wrap clickable">§</div></li>
+            <li title="U+00A9" class="card card-1"><div class="glyph-wrap clickable">©</div></li>
+            <li title="U+00AA" class="card card-1"><div class="glyph-wrap clickable">ª</div></li>
+            <li title="U+00AC: NOT SIGN" class="card card-1"><div class="glyph-wrap clickable">¬</div></li>
+            <li title="U+00AE" class="card card-1"><div class="glyph-wrap clickable">®</div></li>
+            <li title="U+00B0: DEGREE SIGN" class="card card-1"><div class="glyph-wrap clickable">°</div></li>
+            <li title="U+00B1: PLUS-MINUS SIGN" class="card card-1"><div class="glyph-wrap clickable">±</div></li>
+            <li title="U+00B2" class="card card-1"><div class="glyph-wrap clickable">²</div></li>
+            <li title="U+00B3" class="card card-1"><div class="glyph-wrap clickable">³</div></li>
+            <li title="U+00B5" class="card card-1"><div class="glyph-wrap clickable">µ</div></li>
+            <li title="U+00B6" class="card card-1"><div class="glyph-wrap clickable">¶</div></li>
+            <li title="U+00B9" class="card card-1"><div class="glyph-wrap clickable">¹</div></li>
+            <li title="U+00BA" class="card card-1"><div class="glyph-wrap clickable">º</div></li>
+            <li title="U+00BC: VULGAR FRACTION ONE QUARTER" class="card card-1"><div class="glyph-wrap clickable">¼</div></li>
+            <li title="U+00BD: VULGAR FRACTION ONE HALF" class="card card-1"><div class="glyph-wrap clickable">½</div></li>
+            <li title="U+00BE" class="card card-1"><div class="glyph-wrap clickable">¾</div></li>
+            <li title="U+00C0: LATIN CAPITAL LETTER A WITH GRAVE" class="card card-1"><div class="glyph-wrap clickable">À</div></li>
+            <li title="U+00C1: LATIN CAPITAL LETTER A WITH ACUTE" class="card card-1"><div class="glyph-wrap clickable">Á</div></li>
+            <li title="U+00C2: LATIN CAPITAL LETTER A WITH CIRCUMFLEX" class="card card-1"><div class="glyph-wrap clickable">Â</div></li>
+            <li title="U+00C3" class="card card-1"><div class="glyph-wrap clickable">Ã</div></li>
+            <li title="U+00C9: LATIN CAPITAL LETTER E WITH ACUTE" class="card card-1"><div class="glyph-wrap clickable">É</div></li>
+            <li title="U+00CA: LATIN CAPITAL LETTER E WITH CIRCUMFLEX" class="card card-1"><div class="glyph-wrap clickable">Ê</div></li>
+            <li title="U+00CD: LATIN CAPITAL LETTER I WITH ACUTE" class="card card-1"><div class="glyph-wrap clickable">Í</div></li>
+            <li title="U+00D3: LATIN CAPITAL LETTER O WITH ACUTE" class="card card-1"><div class="glyph-wrap clickable">Ó</div></li>
+            <li title="U+00D4: LATIN CAPITAL LETTER O WITH CIRCUMFLEX" class="card card-1"><div class="glyph-wrap clickable">Ô</div></li>
+            <li title="U+00D5" class="card card-1"><div class="glyph-wrap clickable">Õ</div></li>
+            <li title="U+00D7: MULTIPLICATION SIGN" class="card card-1"><div class="glyph-wrap clickable">×</div></li>
+            <li title="U+00DA: LATIN CAPITAL LETTER U WITH ACUTE" class="card card-1"><div class="glyph-wrap clickable">Ú</div></li>
+            <li title="U+00DF: LATIN SMALL LETTER SHARP S" class="card card-1"><div class="glyph-wrap clickable">ß</div></li>
+            <li title="U+00E0: LATIN SMALL LETTER A WITH GRAVE" class="card card-1"><div class="glyph-wrap clickable">à</div></li>
+            <li title="U+00E1: LATIN SMALL LETTER A WITH ACUTE" class="card card-1"><div class="glyph-wrap clickable">á</div></li>
+            <li title="U+00E2: LATIN SMALL LETTER A WITH CIRCUMFLEX" class="card card-1"><div class="glyph-wrap clickable">â</div></li>
+            <li title="U+00E3" class="card card-1"><div class="glyph-wrap clickable">ã</div></li>
+            <li title="U+00E7: LATIN SMALL LETTER C WITH CEDILLA" class="card card-1"><div class="glyph-wrap clickable">ç</div></li>
+            <li title="U+00E9: LATIN SMALL LETTER E WITH ACUTE" class="card card-1"><div class="glyph-wrap clickable">é</div></li>
+            <li title="U+00EA: LATIN SMALL LETTER E WITH CIRCUMFLEX" class="card card-1"><div class="glyph-wrap clickable">ê</div></li>
+            <li title="U+00ED: LATIN SMALL LETTER I WITH ACUTE" class="card card-1"><div class="glyph-wrap clickable">í</div></li>
+            <li title="U+00F3: LATIN SMALL LETTER O WITH ACUTE" class="card card-1"><div class="glyph-wrap clickable">ó</div></li>
+            <li title="U+00F4: LATIN SMALL LETTER O WITH CIRCUMFLEX" class="card card-1"><div class="glyph-wrap clickable">ô</div></li>
+            <li title="U+00F5" class="card card-1"><div class="glyph-wrap clickable">õ</div></li>
+            <li title="U+00F7: DIVISION SIGN" class="card card-1"><div class="glyph-wrap clickable">÷</div></li>
+            <li title="U+00FA: LATIN SMALL LETTER U WITH ACUTE" class="card card-1"><div class="glyph-wrap clickable">ú</div></li>
+            <li title="U+02C6" class="card card-1"><div class="glyph-wrap clickable">ˆ</div></li>
+            <li title="U+0391: GREEK CAPITAL LETTER ALPHA" class="card card-1"><div class="glyph-wrap clickable">Α</div></li>
+            <li title="U+0392: GREEK CAPITAL LETTER BETA" class="card card-1"><div class="glyph-wrap clickable">Β</div></li>
+            <li title="U+0393: GREEK CAPITAL LETTER GAMMA" class="card card-1"><div class="glyph-wrap clickable">Γ</div></li>
+            <li title="U+0394: GREEK CAPITAL LETTER DELTA" class="card card-1"><div class="glyph-wrap clickable">Δ</div></li>
+            <li title="U+0395: GREEK CAPITAL LETTER EPSILON" class="card card-1"><div class="glyph-wrap clickable">Ε</div></li>
+            <li title="U+0396: GREEK CAPITAL LETTER ZETA" class="card card-1"><div class="glyph-wrap clickable">Ζ</div></li>
+            <li title="U+0397: GREEK CAPITAL LETTER ETA" class="card card-1"><div class="glyph-wrap clickable">Η</div></li>
+            <li title="U+0398: GREEK CAPITAL LETTER THETA" class="card card-1"><div class="glyph-wrap clickable">Θ</div></li>
+            <li title="U+0399: GREEK CAPITAL LETTER IOTA" class="card card-1"><div class="glyph-wrap clickable">Ι</div></li>
+            <li title="U+039A: GREEK CAPITAL LETTER KAPPA" class="card card-1"><div class="glyph-wrap clickable">Κ</div></li>
+            <li title="U+039B: GREEK CAPITAL LETTER LAMDA" class="card card-1"><div class="glyph-wrap clickable">Λ</div></li>
+            <li title="U+039C: GREEK CAPITAL LETTER MU" class="card card-1"><div class="glyph-wrap clickable">Μ</div></li>
+            <li title="U+039D: GREEK CAPITAL LETTER NU" class="card card-1"><div class="glyph-wrap clickable">Ν</div></li>
+            <li title="U+039E: GREEK CAPITAL LETTER XI" class="card card-1"><div class="glyph-wrap clickable">Ξ</div></li>
+            <li title="U+039F: GREEK CAPITAL LETTER OMICRON" class="card card-1"><div class="glyph-wrap clickable">Ο</div></li>
+            <li title="U+03A0: GREEK CAPITAL LETTER PI" class="card card-1"><div class="glyph-wrap clickable">Π</div></li>
+            <li title="U+03A1: GREEK CAPITAL LETTER RHO" class="card card-1"><div class="glyph-wrap clickable">Ρ</div></li>
+            <li title="U+03A3: GREEK CAPITAL LETTER SIGMA" class="card card-1"><div class="glyph-wrap clickable">Σ</div></li>
+            <li title="U+03A4: GREEK CAPITAL LETTER TAU" class="card card-1"><div class="glyph-wrap clickable">Τ</div></li>
+            <li title="U+03A5: GREEK CAPITAL LETTER UPSILON" class="card card-1"><div class="glyph-wrap clickable">Υ</div></li>
+            <li title="U+03A6: GREEK CAPITAL LETTER PHI" class="card card-1"><div class="glyph-wrap clickable">Φ</div></li>
+            <li title="U+03A7: GREEK CAPITAL LETTER CHI" class="card card-1"><div class="glyph-wrap clickable">Χ</div></li>
+            <li title="U+03A8: GREEK CAPITAL LETTER PSI" class="card card-1"><div class="glyph-wrap clickable">Ψ</div></li>
+            <li title="U+03A9: GREEK CAPITAL LETTER OMEGA" class="card card-1"><div class="glyph-wrap clickable">Ω</div></li>
+            <li title="U+03B1: GREEK SMALL LETTER ALPHA" class="card card-1"><div class="glyph-wrap clickable">α</div></li>
+            <li title="U+03B2: GREEK SMALL LETTER BETA" class="card card-1"><div class="glyph-wrap clickable">β</div></li>
+            <li title="U+03B3: GREEK SMALL LETTER GAMMA" class="card card-1"><div class="glyph-wrap clickable">γ</div></li>
+            <li title="U+03B4: GREEK SMALL LETTER DELTA" class="card card-1"><div class="glyph-wrap clickable">δ</div></li>
+            <li title="U+03B5: GREEK SMALL LETTER EPSILON" class="card card-1"><div class="glyph-wrap clickable">ε</div></li>
+            <li title="U+03B6: GREEK SMALL LETTER ZETA" class="card card-1"><div class="glyph-wrap clickable">ζ</div></li>
+            <li title="U+03B7: GREEK SMALL LETTER ETA" class="card card-1"><div class="glyph-wrap clickable">η</div></li>
+            <li title="U+03B8: GREEK SMALL LETTER THETA" class="card card-1"><div class="glyph-wrap clickable">θ</div></li>
+            <li title="U+03B9: GREEK SMALL LETTER IOTA" class="card card-1"><div class="glyph-wrap clickable">ι</div></li>
+            <li title="U+03BA: GREEK SMALL LETTER KAPPA" class="card card-1"><div class="glyph-wrap clickable">κ</div></li>
+            <li title="U+03BB: GREEK SMALL LETTER LAMDA" class="card card-1"><div class="glyph-wrap clickable">λ</div></li>
+            <li title="U+03BC: GREEK SMALL LETTER MU" class="card card-1"><div class="glyph-wrap clickable">μ</div></li>
+            <li title="U+03BD: GREEK SMALL LETTER NU" class="card card-1"><div class="glyph-wrap clickable">ν</div></li>
+            <li title="U+03BE: GREEK SMALL LETTER XI" class="card card-1"><div class="glyph-wrap clickable">ξ</div></li>
+            <li title="U+03BF: GREEK SMALL LETTER OMICRON" class="card card-1"><div class="glyph-wrap clickable">ο</div></li>
+            <li title="U+03C0: GREEK SMALL LETTER PI" class="card card-1"><div class="glyph-wrap clickable">π</div></li>
+            <li title="U+03C1: GREEK SMALL LETTER RHO" class="card card-1"><div class="glyph-wrap clickable">ρ</div></li>
+            <li title="U+03C2: GREEK SMALL LETTER FINAL SIGMA" class="card card-1"><div class="glyph-wrap clickable">ς</div></li>
+            <li title="U+03C3: GREEK SMALL LETTER SIGMA" class="card card-1"><div class="glyph-wrap clickable">σ</div></li>
+            <li title="U+03C4: GREEK SMALL LETTER TAU" class="card card-1"><div class="glyph-wrap clickable">τ</div></li>
+            <li title="U+03C5: GREEK SMALL LETTER UPSILON" class="card card-1"><div class="glyph-wrap clickable">υ</div></li>
+            <li title="U+03C6: GREEK SMALL LETTER PHI" class="card card-1"><div class="glyph-wrap clickable">φ</div></li>
+            <li title="U+03C7: GREEK SMALL LETTER CHI" class="card card-1"><div class="glyph-wrap clickable">χ</div></li>
+            <li title="U+03C8: GREEK SMALL LETTER PSI" class="card card-1"><div class="glyph-wrap clickable">ψ</div></li>
+            <li title="U+03C9: GREEK SMALL LETTER OMEGA" class="card card-1"><div class="glyph-wrap clickable">ω</div></li>
+            <li title="U+1D2C" class="card card-1"><div class="glyph-wrap clickable">ᴬ</div></li>
+            <li title="U+1D2E" class="card card-1"><div class="glyph-wrap clickable">ᴮ</div></li>
+            <li title="U+1D30" class="card card-1"><div class="glyph-wrap clickable">ᴰ</div></li>
+            <li title="U+1D31" class="card card-1"><div class="glyph-wrap clickable">ᴱ</div></li>
+            <li title="U+1D43" class="card card-1"><div class="glyph-wrap clickable">ᵃ</div></li>
+            <li title="U+1D47" class="card card-1"><div class="glyph-wrap clickable">ᵇ</div></li>
+            <li title="U+1D48" class="card card-1"><div class="glyph-wrap clickable">ᵈ</div></li>
+            <li title="U+1D49" class="card card-1"><div class="glyph-wrap clickable">ᵉ</div></li>
+            <li title="U+1D4D" class="card card-1"><div class="glyph-wrap clickable">ᵍ</div></li>
+            <li title="U+1D4F" class="card card-1"><div class="glyph-wrap clickable">ᵏ</div></li>
+            <li title="U+1D50" class="card card-1"><div class="glyph-wrap clickable">ᵐ</div></li>
+            <li title="U+1D52" class="card card-1"><div class="glyph-wrap clickable">ᵒ</div></li>
+            <li title="U+1D56" class="card card-1"><div class="glyph-wrap clickable">ᵖ</div></li>
+            <li title="U+1D57" class="card card-1"><div class="glyph-wrap clickable">ᵗ</div></li>
+            <li title="U+1D58" class="card card-1"><div class="glyph-wrap clickable">ᵘ</div></li>
+            <li title="U+1D5A" class="card card-1"><div class="glyph-wrap clickable">ᵚ</div></li>
+            <li title="U+1D5B" class="card card-1"><div class="glyph-wrap clickable">ᵛ</div></li>
+            <li title="U+1D61" class="card card-1"><div class="glyph-wrap clickable">ᵡ</div></li>
+            <li title="U+2013: EN DASH" class="card card-1"><div class="glyph-wrap clickable">–</div></li>
+            <li title="U+201C: LEFT DOUBLE QUOTATION MARK" class="card card-1"><div class="glyph-wrap clickable">“</div></li>
+            <li title="U+2022: BULLET" class="card card-1"><div class="glyph-wrap clickable">•</div></li>
+            <li title="U+2023" class="card card-1"><div class="glyph-wrap clickable">‣</div></li>
+            <li title="U+2026: HORIZONTAL ELLIPSIS" class="card card-1"><div class="glyph-wrap clickable">…</div></li>
+            <li title="U+2039: SINGLE LEFT-POINTING ANGLE QUOTATION MARK" class="card card-1"><div class="glyph-wrap clickable">‹</div></li>
+            <li title="U+203A: SINGLE RIGHT-POINTING ANGLE QUOTATION MARK" class="card card-1"><div class="glyph-wrap clickable">›</div></li>
+            <li title="U+2044: FRACTION SLASH" class="card card-1"><div class="glyph-wrap clickable">⁄</div></li>
+            <li title="U+2070" class="card card-1"><div class="glyph-wrap clickable">⁰</div></li>
+            <li title="U+2074" class="card card-1"><div class="glyph-wrap clickable">⁴</div></li>
+            <li title="U+2075" class="card card-1"><div class="glyph-wrap clickable">⁵</div></li>
+            <li title="U+2076" class="card card-1"><div class="glyph-wrap clickable">⁶</div></li>
+            <li title="U+2077" class="card card-1"><div class="glyph-wrap clickable">⁷</div></li>
+            <li title="U+2078" class="card card-1"><div class="glyph-wrap clickable">⁸</div></li>
+            <li title="U+2079" class="card card-1"><div class="glyph-wrap clickable">⁹</div></li>
+            <li title="U+207A" class="card card-1"><div class="glyph-wrap clickable">⁺</div></li>
+            <li title="U+207B" class="card card-1"><div class="glyph-wrap clickable">⁻</div></li>
+            <li title="U+207C" class="card card-1"><div class="glyph-wrap clickable">⁼</div></li>
+            <li title="U+207D" class="card card-1"><div class="glyph-wrap clickable">⁽</div></li>
+            <li title="U+207E" class="card card-1"><div class="glyph-wrap clickable">⁾</div></li>
+            <li title="U+207F" class="card card-1"><div class="glyph-wrap clickable">ⁿ</div></li>
+            <li title="U+2080" class="card card-1"><div class="glyph-wrap clickable">₀</div></li>
+            <li title="U+2081" class="card card-1"><div class="glyph-wrap clickable">₁</div></li>
+            <li title="U+2082" class="card card-1"><div class="glyph-wrap clickable">₂</div></li>
+            <li title="U+2083" class="card card-1"><div class="glyph-wrap clickable">₃</div></li>
+            <li title="U+2084" class="card card-1"><div class="glyph-wrap clickable">₄</div></li>
+            <li title="U+2085" class="card card-1"><div class="glyph-wrap clickable">₅</div></li>
+            <li title="U+2086" class="card card-1"><div class="glyph-wrap clickable">₆</div></li>
+            <li title="U+2087" class="card card-1"><div class="glyph-wrap clickable">₇</div></li>
+            <li title="U+2088" class="card card-1"><div class="glyph-wrap clickable">₈</div></li>
+            <li title="U+2089" class="card card-1"><div class="glyph-wrap clickable">₉</div></li>
+            <li title="U+208A" class="card card-1"><div class="glyph-wrap clickable">₊</div></li>
+            <li title="U+208B" class="card card-1"><div class="glyph-wrap clickable">₋</div></li>
+            <li title="U+208C" class="card card-1"><div class="glyph-wrap clickable">₌</div></li>
+            <li title="U+208D" class="card card-1"><div class="glyph-wrap clickable">₍</div></li>
+            <li title="U+208E" class="card card-1"><div class="glyph-wrap clickable">₎</div></li>
+            <li title="U+2102" class="card card-1"><div class="glyph-wrap clickable">ℂ</div></li>
+            <li title="U+2103" class="card card-1"><div class="glyph-wrap clickable">℃</div></li>
+            <li title="U+2109" class="card card-1"><div class="glyph-wrap clickable">℉</div></li>
+            <li title="U+2115" class="card card-1"><div class="glyph-wrap clickable">ℕ</div></li>
+            <li title="U+211A" class="card card-1"><div class="glyph-wrap clickable">ℚ</div></li>
+            <li title="U+211D" class="card card-1"><div class="glyph-wrap clickable">ℝ</div></li>
+            <li title="U+2122" class="card card-1"><div class="glyph-wrap clickable">™</div></li>
+            <li title="U+2124" class="card card-1"><div class="glyph-wrap clickable">ℤ</div></li>
+            <li title="U+2153" class="card card-1"><div class="glyph-wrap clickable">⅓</div></li>
+            <li title="U+2154" class="card card-1"><div class="glyph-wrap clickable">⅔</div></li>
+            <li title="U+2155" class="card card-1"><div class="glyph-wrap clickable">⅕</div></li>
+            <li title="U+2156" class="card card-1"><div class="glyph-wrap clickable">⅖</div></li>
+            <li title="U+2157" class="card card-1"><div class="glyph-wrap clickable">⅗</div></li>
+            <li title="U+2158" class="card card-1"><div class="glyph-wrap clickable">⅘</div></li>
+            <li title="U+2159" class="card card-1"><div class="glyph-wrap clickable">⅙</div></li>
+            <li title="U+215A" class="card card-1"><div class="glyph-wrap clickable">⅚</div></li>
+            <li title="U+215B" class="card card-1"><div class="glyph-wrap clickable">⅛</div></li>
+            <li title="U+215C" class="card card-1"><div class="glyph-wrap clickable">⅜</div></li>
+            <li title="U+215D" class="card card-1"><div class="glyph-wrap clickable">⅝</div></li>
+            <li title="U+215E" class="card card-1"><div class="glyph-wrap clickable">⅞</div></li>
+            <li title="U+2190" class="card card-1"><div class="glyph-wrap clickable">←</div></li>
+            <li title="U+2191" class="card card-1"><div class="glyph-wrap clickable">↑</div></li>
+            <li title="U+2192: RIGHTWARDS ARROW" class="card card-1"><div class="glyph-wrap clickable">→</div></li>
+            <li title="U+2193" class="card card-1"><div class="glyph-wrap clickable">↓</div></li>
+            <li title="U+21CC" class="card card-1"><div class="glyph-wrap clickable">⇌</div></li>
+            <li title="U+21D0" class="card card-1"><div class="glyph-wrap clickable">⇐</div></li>
+            <li title="U+21D1" class="card card-1"><div class="glyph-wrap clickable">⇑</div></li>
+            <li title="U+21D2: RIGHTWARDS DOUBLE ARROW" class="card card-1"><div class="glyph-wrap clickable">⇒</div></li>
+            <li title="U+21D3" class="card card-1"><div class="glyph-wrap clickable">⇓</div></li>
+            <li title="U+21D4: LEFT RIGHT DOUBLE ARROW" class="card card-1"><div class="glyph-wrap clickable">⇔</div></li>
+            <li title="U+21E6" class="card card-1"><div class="glyph-wrap clickable">⇦</div></li>
+            <li title="U+21E7" class="card card-1"><div class="glyph-wrap clickable">⇧</div></li>
+            <li title="U+21E8" class="card card-1"><div class="glyph-wrap clickable">⇨</div></li>
+            <li title="U+21E9" class="card card-1"><div class="glyph-wrap clickable">⇩</div></li>
+            <li title="U+2200: FOR ALL" class="card card-1"><div class="glyph-wrap clickable">∀</div></li>
+            <li title="U+2201" class="card card-1"><div class="glyph-wrap clickable">∁</div></li>
+            <li title="U+2202: PARTIAL DIFFERENTIAL" class="card card-1"><div class="glyph-wrap clickable">∂</div></li>
+            <li title="U+2203: THERE EXISTS" class="card card-1"><div class="glyph-wrap clickable">∃</div></li>
+            <li title="U+2204" class="card card-1"><div class="glyph-wrap clickable">∄</div></li>
+            <li title="U+2205: EMPTY SET" class="card card-1"><div class="glyph-wrap clickable">∅</div></li>
+            <li title="U+2207: NABLA" class="card card-1"><div class="glyph-wrap clickable">∇</div></li>
+            <li title="U+2208: ELEMENT OF" class="card card-1"><div class="glyph-wrap clickable">∈</div></li>
+            <li title="U+2209: NOT AN ELEMENT OF" class="card card-1"><div class="glyph-wrap clickable">∉</div></li>
+            <li title="U+220F: N-ARY PRODUCT" class="card card-1"><div class="glyph-wrap clickable">∏</div></li>
+            <li title="U+2211: N-ARY SUMMATION" class="card card-1"><div class="glyph-wrap clickable">∑</div></li>
+            <li title="U+2212: MINUS SIGN" class="card card-1"><div class="glyph-wrap clickable">−</div></li>
+            <li title="U+2215" class="card card-1"><div class="glyph-wrap clickable">∕</div></li>
+            <li title="U+2219" class="card card-1"><div class="glyph-wrap clickable">∙</div></li>
+            <li title="U+221A: SQUARE ROOT" class="card card-1"><div class="glyph-wrap clickable">√</div></li>
+            <li title="U+221B" class="card card-1"><div class="glyph-wrap clickable">∛</div></li>
+            <li title="U+221C" class="card card-1"><div class="glyph-wrap clickable">∜</div></li>
+            <li title="U+221D" class="card card-1"><div class="glyph-wrap clickable">∝</div></li>
+            <li title="U+221E: INFINITY" class="card card-1"><div class="glyph-wrap clickable">∞</div></li>
+            <li title="U+221F" class="card card-1"><div class="glyph-wrap clickable">∟</div></li>
+            <li title="U+2220: ANGLE" class="card card-1"><div class="glyph-wrap clickable">∠</div></li>
+            <li title="U+2221" class="card card-1"><div class="glyph-wrap clickable">∡</div></li>
+            <li title="U+2222" class="card card-1"><div class="glyph-wrap clickable">∢</div></li>
+            <li title="U+2225" class="card card-1"><div class="glyph-wrap clickable">∥</div></li>
+            <li title="U+2226" class="card card-1"><div class="glyph-wrap clickable">∦</div></li>
+            <li title="U+2229: INTERSECTION" class="card card-1"><div class="glyph-wrap clickable">∩</div></li>
+            <li title="U+222A: UNION" class="card card-1"><div class="glyph-wrap clickable">∪</div></li>
+            <li title="U+222B: INTEGRAL" class="card card-1"><div class="glyph-wrap clickable">∫</div></li>
+            <li title="U+222C" class="card card-1"><div class="glyph-wrap clickable">∬</div></li>
+            <li title="U+222D" class="card card-1"><div class="glyph-wrap clickable">∭</div></li>
+            <li title="U+222E" class="card card-1"><div class="glyph-wrap clickable">∮</div></li>
+            <li title="U+222F" class="card card-1"><div class="glyph-wrap clickable">∯</div></li>
+            <li title="U+2230" class="card card-1"><div class="glyph-wrap clickable">∰</div></li>
+            <li title="U+2231" class="card card-1"><div class="glyph-wrap clickable">∱</div></li>
+            <li title="U+2232" class="card card-1"><div class="glyph-wrap clickable">∲</div></li>
+            <li title="U+2233" class="card card-1"><div class="glyph-wrap clickable">∳</div></li>
+            <li title="U+223C" class="card card-1"><div class="glyph-wrap clickable">∼</div></li>
+            <li title="U+2243" class="card card-1"><div class="glyph-wrap clickable">≃</div></li>
+            <li title="U+2245" class="card card-1"><div class="glyph-wrap clickable">≅</div></li>
+            <li title="U+2248: ALMOST EQUAL TO" class="card card-1"><div class="glyph-wrap clickable">≈</div></li>
+            <li title="U+2260: NOT EQUAL TO" class="card card-1"><div class="glyph-wrap clickable">≠</div></li>
+            <li title="U+2261: IDENTICAL TO" class="card card-1"><div class="glyph-wrap clickable">≡</div></li>
+            <li title="U+2262" class="card card-1"><div class="glyph-wrap clickable">≢</div></li>
+            <li title="U+2264: LESS-THAN OR EQUAL TO" class="card card-1"><div class="glyph-wrap clickable">≤</div></li>
+            <li title="U+2265: GREATER-THAN OR EQUAL TO" class="card card-1"><div class="glyph-wrap clickable">≥</div></li>
+            <li title="U+226A" class="card card-1"><div class="glyph-wrap clickable">≪</div></li>
+            <li title="U+226B" class="card card-1"><div class="glyph-wrap clickable">≫</div></li>
+            <li title="U+2282: SUBSET OF" class="card card-1"><div class="glyph-wrap clickable">⊂</div></li>
+            <li title="U+2283: SUPERSET OF" class="card card-1"><div class="glyph-wrap clickable">⊃</div></li>
+            <li title="U+2284: NOT A SUBSET OF" class="card card-1"><div class="glyph-wrap clickable">⊄</div></li>
+            <li title="U+2285" class="card card-1"><div class="glyph-wrap clickable">⊅</div></li>
+            <li title="U+2286: SUBSET OF OR EQUAL TO" class="card card-1"><div class="glyph-wrap clickable">⊆</div></li>
+            <li title="U+2288" class="card card-1"><div class="glyph-wrap clickable">⊈</div></li>
+            <li title="U+22BE" class="card card-1"><div class="glyph-wrap clickable">⊾</div></li>
+            <li title="U+22D8" class="card card-1"><div class="glyph-wrap clickable">⋘</div></li>
+            <li title="U+22D9" class="card card-1"><div class="glyph-wrap clickable">⋙</div></li>
+            <li title="U+2318" class="card card-1"><div class="glyph-wrap clickable">⌘</div></li>
+            <li title="U+2325" class="card card-1"><div class="glyph-wrap clickable">⌥</div></li>
+            <li title="U+232B" class="card card-1"><div class="glyph-wrap clickable">⌫</div></li>
+            <li title="U+235F" class="card card-1"><div class="glyph-wrap clickable">⍟</div></li>
+            <li title="U+23CE" class="card card-1"><div class="glyph-wrap clickable">⏎</div></li>
+            <li title="U+2500" class="card card-1"><div class="glyph-wrap clickable">─</div></li>
+            <li title="U+2502" class="card card-1"><div class="glyph-wrap clickable">│</div></li>
+            <li title="U+2514" class="card card-1"><div class="glyph-wrap clickable">└</div></li>
+            <li title="U+251C" class="card card-1"><div class="glyph-wrap clickable">├</div></li>
+            <li title="U+2588" class="card card-1"><div class="glyph-wrap clickable">█</div></li>
+            <li title="U+25A0" class="card card-1"><div class="glyph-wrap clickable">■</div></li>
+            <li title="U+25A1" class="card card-1"><div class="glyph-wrap clickable">□</div></li>
+            <li title="U+25A3" class="card card-1"><div class="glyph-wrap clickable">▣</div></li>
+            <li title="U+25B2" class="card card-1"><div class="glyph-wrap clickable">▲</div></li>
+            <li title="U+25B3" class="card card-1"><div class="glyph-wrap clickable">△</div></li>
+            <li title="U+25B6" class="card card-1"><div class="glyph-wrap clickable">▶</div></li>
+            <li title="U+25B7" class="card card-1"><div class="glyph-wrap clickable">▷</div></li>
+            <li title="U+25BA" class="card card-1"><div class="glyph-wrap clickable">►</div></li>
+            <li title="U+25BB" class="card card-1"><div class="glyph-wrap clickable">▻</div></li>
+            <li title="U+25BC" class="card card-1"><div class="glyph-wrap clickable">▼</div></li>
+            <li title="U+25BD" class="card card-1"><div class="glyph-wrap clickable">▽</div></li>
+            <li title="U+25C0" class="card card-1"><div class="glyph-wrap clickable">◀</div></li>
+            <li title="U+25C1" class="card card-1"><div class="glyph-wrap clickable">◁</div></li>
+            <li title="U+25C4" class="card card-1"><div class="glyph-wrap clickable">◄</div></li>
+            <li title="U+25C5" class="card card-1"><div class="glyph-wrap clickable">◅</div></li>
+            <li title="U+25C6" class="card card-1"><div class="glyph-wrap clickable">◆</div></li>
+            <li title="U+25C7" class="card card-1"><div class="glyph-wrap clickable">◇</div></li>
+            <li title="U+25C8" class="card card-1"><div class="glyph-wrap clickable">◈</div></li>
+            <li title="U+25C9" class="card card-1"><div class="glyph-wrap clickable">◉</div></li>
+            <li title="U+25CB" class="card card-1"><div class="glyph-wrap clickable">○</div></li>
+            <li title="U+25CF" class="card card-1"><div class="glyph-wrap clickable">●</div></li>
+            <li title="U+25D0" class="card card-1"><div class="glyph-wrap clickable">◐</div></li>
+            <li title="U+25D1" class="card card-1"><div class="glyph-wrap clickable">◑</div></li>
+            <li title="U+25D4" class="card card-1"><div class="glyph-wrap clickable">◔</div></li>
+            <li title="U+25D5" class="card card-1"><div class="glyph-wrap clickable">◕</div></li>
+            <li title="U+2605" class="card card-1"><div class="glyph-wrap clickable">★</div></li>
+            <li title="U+263B" class="card card-1"><div class="glyph-wrap clickable">☻</div></li>
+            <li title="U+263C" class="card card-1"><div class="glyph-wrap clickable">☼</div></li>
+            <li title="U+263E" class="card card-1"><div class="glyph-wrap clickable">☾</div></li>
+            <li title="U+2640" class="card card-1"><div class="glyph-wrap clickable">♀</div></li>
+            <li title="U+2642" class="card card-1"><div class="glyph-wrap clickable">♂</div></li>
+            <li title="U+2660" class="card card-1"><div class="glyph-wrap clickable">♠</div></li>
+            <li title="U+2661" class="card card-1"><div class="glyph-wrap clickable">♡</div></li>
+            <li title="U+2662" class="card card-1"><div class="glyph-wrap clickable">♢</div></li>
+            <li title="U+2663" class="card card-1"><div class="glyph-wrap clickable">♣</div></li>
+            <li title="U+2664" class="card card-1"><div class="glyph-wrap clickable">♤</div></li>
+            <li title="U+2665" class="card card-1"><div class="glyph-wrap clickable">♥</div></li>
+            <li title="U+2666" class="card card-1"><div class="glyph-wrap clickable">♦</div></li>
+            <li title="U+2667" class="card card-1"><div class="glyph-wrap clickable">♧</div></li>
+            <li title="U+266A" class="card card-1"><div class="glyph-wrap clickable">♪</div></li>
+            <li title="U+266B" class="card card-1"><div class="glyph-wrap clickable">♫</div></li>
+            <li title="U+2713" class="card card-1"><div class="glyph-wrap clickable">✓</div></li>
+            <li title="U+271E" class="card card-1"><div class="glyph-wrap clickable">✞</div></li>
+            <li title="U+2726" class="card card-1"><div class="glyph-wrap clickable">✦</div></li>
+            <li title="U+2729" class="card card-1"><div class="glyph-wrap clickable">✩</div></li>
+            <li title="U+272A" class="card card-1"><div class="glyph-wrap clickable">✪</div></li>
+            <li title="U+272F" class="card card-1"><div class="glyph-wrap clickable">✯</div></li>
+            <li title="U+2730" class="card card-1"><div class="glyph-wrap clickable">✰</div></li>
+            <li title="U+2745" class="card card-1"><div class="glyph-wrap clickable">❅</div></li>
+            <li title="U+27A2" class="card card-1"><div class="glyph-wrap clickable">➢</div></li>
+            <li title="U+27A3" class="card card-1"><div class="glyph-wrap clickable">➣</div></li>
+            <li title="U+27AD" class="card card-1"><div class="glyph-wrap clickable">➭</div></li>
+            <li title="U+29A8" class="card card-1"><div class="glyph-wrap clickable">⦨</div></li>
+            <li title="U+29A9" class="card card-1"><div class="glyph-wrap clickable">⦩</div></li>
+            <li title="U+29AA" class="card card-1"><div class="glyph-wrap clickable">⦪</div></li>
+            <li title="U+29AB" class="card card-1"><div class="glyph-wrap clickable">⦫</div></li>
+            <li title="U+29AC" class="card card-1"><div class="glyph-wrap clickable">⦬</div></li>
+            <li title="U+29AD" class="card card-1"><div class="glyph-wrap clickable">⦭</div></li>
+            <li title="U+29AE" class="card card-1"><div class="glyph-wrap clickable">⦮</div></li>
+            <li title="U+29AF" class="card card-1"><div class="glyph-wrap clickable">⦯</div></li>
+            <li title="U+2A0C" class="card card-1"><div class="glyph-wrap clickable">⨌</div></li>
+            <li title="U+2B1F" class="card card-1"><div class="glyph-wrap clickable">⬟</div></li>
+            <li title="U+2B20" class="card card-1"><div class="glyph-wrap clickable">⬠</div></li>
+            <li title="U+2B21" class="card card-1"><div class="glyph-wrap clickable">⬡</div></li>
+            <li title="U+2B22" class="card card-1"><div class="glyph-wrap clickable">⬢</div></li>
+            <li title="U+2B23" class="card card-1 new-element"><div class="glyph-wrap clickable">⬣</div></li>
+            <li title="U+3008" class="card card-1"><div class="glyph-wrap clickable">〈</div></li>
+            <li title="U+3009" class="card card-1"><div class="glyph-wrap clickable">〉</div></li>
+            <li title="" class="card card-1"><div class="glyph-wrap clickable">𐄂</div></li>
+            <li title="U+FD3E" class="card card-1"><div class="glyph-wrap clickable">﴾</div></li>
+            <li title="U+FD3F" class="card card-1"><div class="glyph-wrap clickable">﴿</div></li>
+            <li title="U+FFFC" class="card card-1"><div class="glyph-wrap clickable">￼</div></li>
+            <li title="U+FFFD" class="card card-1"><div class="glyph-wrap clickable">�</div></li>
+        </ul>
+
+        <pre id="out"></pre>
+
+        <script>
+
+            var charsUL = document.querySelector('#templates-glyphs-list')
+
+            var charsUL_boxes = charsUL.querySelectorAll(':scope div')
+
+            var getAllCharsAsString = ``
+
+            charsUL_boxes.forEach(function (box) {
+            
+                getAllCharsAsString += box.textContent
+            })
+
+            out.textContent = getAllCharsAsString
+
+        </script>
+        -->
+    </main>
+
+<!-- <div style="font-size: inherit; width: max-content; -moz-width: fit-content; width: -moz-fit-content; width: fit-content;"></div> -->
+
+<script src="../../Development/console.js"></script>
+<script src="../../Tec OP/hi-techCore/scripts/defaults.js"></script> 
+<script>
+
+/*
+◈──────────────────────────────────────────────────────◈
+TODO: Input Data
+◈──────────────────────────────────────────────────────◈ */
+
+// Uso essas strings para por os caracteres de ligadura no web app para criar as folhas das fontes:
+
+var ligatures_basic = `+-, --, ..., <<, <<<, <=, <=>, =>, >=, >>, >>>, {}` // =/, ˜, ˜˜, ˜-, ˜=, /_, |_, =-, =-/ // `--, ..., <=, >=` // `>=, <=, 0, 12, 345, a, bc, def, g0, h1, i, >=, <=, 0, 12, 345, a, bc, def, g0, h1, i, >=, <=, 0, 12, 345, a, bc, def, g0, h1, i, >=, <=, 0, 12, 345, a, bc, def, g0, h1, i, >=, <=, 0, 12, 345, a, bc, def, g0, h1, i, >=, <=, 0, 12, 345, a, bc, def, g0, h1, i`
+
+var $fonts = {
+
+// Fontes que não precisam ser baixadas (font.download: false):
+
+Times_New_Roman: { class: 'Times_New_Roman', fontSizeDefault: 19, versions: ['Regular', 'Bold', 'Italic', 'Bold_Italic'], download: false },
+Verdana: { class: 'Verdana', fontSizeDefault: 16, versions: ['Regular', 'Bold', 'Italic', 'Bold_Italic'], download: false },
+
+// Fontes que precisam ser baixadas (font.download: true):
+
+Verdial: { class: 'Verdial', fontSizeDefault: 19, versions: ['Regular', 'Bold'], ligatures: ligatures_basic, download: true },
+Verdial_Regular: { class: 'Verdial_Regular', fontSizeDefault: 19, versions: ['Regular'], baseFontClass: 'Verdana', fontSizeOnSheets: 164, ligatures: ligatures_basic, download: true },
+Verdial_Bold: { class: 'Verdial_Bold', fontSizeDefault: 19, versions: ['Bold'], baseFontClass: 'Verdial_Regular', fontSizeOnSheets: 186, ligatures: ligatures_basic, download: true }
+}
+
+//Add propriedade name (auto):
+
+for(n in $fonts) {
+
+    $fonts[n].name = $fonts[n].class.replace('_', ' ').replace('_', ' ').replace('_', ' ').replace('_', ' ').replace('_', ' ').replace('_', ' ').replace('_', ' ')
+}
+
+// Especificar a propriedade em desenvolvimento:
+
+var Font_In_Development = $fonts.Verdial_Bold
+
+/*
+◈──────────────────────────────────────────────────────◈
+TODO: CSS Of The Fonts
+◈──────────────────────────────────────────────────────◈ */
+
+var style = document.querySelector('style')
+
+for(n in $fonts) {
+
+    //··································◈  Regras
+
+    style.insertAdjacentText('afterbegin', `
+    .${$fonts[n].class}, .${$fonts[n].class} * { font-family: '${$fonts[n].name}'; font-size: ${$fonts[n].fontSizeDefault}px; line-height: ${28.5/$fonts[n].fontSizeDefault}; }`)
+
+    //··································◈  CSS para baixar as fontes
+
+    if ($fonts[n].download === true) {
+
+        csl.log($fonts[n].class)
+
+        var folderName = $fonts[n].class
+
+        folderName = folderName.replace("_Regular", "")
+        folderName = folderName.replace("_Bold", "")
+        folderName = folderName.replace("_Italic", "")
+
+        if ($fonts[n].versions.length === 1) {
+                    
+            style.insertAdjacentText('afterbegin', `
+
+                @font-face { font-family: "${$fonts[n].name}"; src: url("fonts/${folderName}/${$fonts[n].class}.otf"); }
+            `)
+                    
+        } else if ($fonts[n].versions.length > 1) {
+            
+            $fonts[n].versions.forEach(function (version) {
+            
+                if (version === 'Regular') {
+                    
+                    style.insertAdjacentText('afterbegin', `
+
+                        @font-face { font-family: "${$fonts[n].name}"; src: url("fonts/${folderName}/${$fonts[n].class}_Regular.otf"); font-weight: normal; font-style: normal; }
+                    `)
+                }
+            
+                if (version === 'Bold') {
+                    
+                    style.insertAdjacentText('afterbegin', `
+
+                        @font-face { font-family: "${$fonts[n].name}"; src: url("fonts/${folderName}/${$fonts[n].class}_Bold.otf"); font-weight: bold; font-style: normal; }
+                    `)
+                }
+            
+                if (version === 'Italic') {
+                    
+                    style.insertAdjacentText('afterbegin', `
+
+                        @font-face { font-family: "${$fonts[n].name}"; src: url("fonts/${folderName}/${$fonts[n].class}_Italic.otf"); font-weight: normal; font-style: italic; }
+                    `)
+                }
+                
+                if (version === 'Bold_Italic') {
+                    
+                    style.insertAdjacentText('afterbegin', `
+
+                        @font-face { font-family: "${$fonts[n].name}"; src: url("fonts/${folderName}/${$fonts[n].class}_Bold_Italic.otf"); font-weight: bold; font-style: italic; }
+                    `)
+                }
+            })        
+        }
+    }
+}
+
+/*
+◈──────────────────────────────────────────────────────◈
+TODO: Fonts To View
+◈──────────────────────────────────────────────────────◈ */
+
+var fontsToView = $fonts
+
+
+/*  TODO:    1 ▶ Caracteres
+◈──────────────────────────────────────────────────────◈ */
+
+var hx_caracteres_content = document.querySelector('.hx_caracteres_content')
+
+for(n in fontsToView){
+
+    hx_caracteres_content.innerHTML += `
+    
+    <details class="type_2 ${$fonts[n].class}">
+
+    <summary>${$fonts[n].name}</summary>
+
+    <div class="content ${$fonts[n].class} charsBox" contenteditable>
+        <div class="normals"></div>
+        <div class="ligatures"></div>
+    </div>        
+
+    </details>
+    `
+}
+
+/* */
+hx_caracteres_content.innerHTML += `
+    
+<details class="type_2 ${Font_In_Development.class}" open>
+
+<summary>Font In Development: ${Font_In_Development.name}</summary>
+
+<div class="content ${Font_In_Development.class} charsBox" contenteditable>
+    <div class="normals"></div>
+    <div class="ligatures"></div>
+</div>        
+
+</details>
+`
+
+
+// var charsBoxes = document.querySelectorAll('.charsBox')
+var charsBoxes_normals = document.querySelectorAll('.charsBox .normals')
+var charsBoxes_ligatures = document.querySelectorAll('.charsBox .ligatures')
+
+charsBoxes_normals.forEach(function (charsBox_normals) {
+
+    charsBox_normals.textContent = 
+    `0123456789 abcdefghijklmnopqrstuvwxyz áãàâçéêíóõôú ABCDEFGHIJKLMNOPQRSTUVWXYZ ÁÃÀÂÇÉÊÍÓÕÔÚ
+    '"ªº()[]{},;:.!?+-−×∙÷∕⁄=%_@#$–/“ˆ…¬\`*&|\\ 
+    ¼½¾⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞⇑⇓⇐⇒⇔±√∛∜<>≤≥≠∼≈≃≅∝∃∄
+    ∠∡∟⊾∢⦨⦩⦪⦫⦬⦭⦮⦯ ∞≡≢∥∦≪≫⋘⋙∇∑∏§
+    x⁺⁻⁼⁽⁾⁰¹²³⁴⁵⁶⁷⁸⁹ᴬᴮᴰᴱᵃᵇᵈᵉᵍᵏᵐⁿᵒᵖᵗᵘᵛᵚᵡ x₊₋₌₍₎₀₁₂₃₄₅₆₇₈₉
+    ℕℤℚℂℝ∅∀∈∉⊂⊄⊆⊈⊃⊅∁∪∩∂∫∬∭⨌∮∯∰∱∲∳
+    �￼‹›⏎⌫⌘⌥¦█¶ °℃℉ ⇌
+    αβγδεζηθικλµνξοπρστυφχψω ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ
+    •‣ 
+    ◄►◅▻↑↓←→⇧⇩⇦⇨➭➢➣ │├└─
+    ▲△▼▽◀◁▶▷■□◆◇⬠⬟⬡⬢●○◉◈▣
+    ©®™ ✓𐄂♂♀〈〉﴾﴿◐◑☻★✰✩✯✪⍟✦♪♫♥♦♣♠♡♢♧♤✞☼☾❅◔◕`
+})
+
+charsBoxes_ligatures.forEach(function (charsBox_ligatures) {
+
+    //lightbox(getComputedStyle(charsBox_ligatures).getPropertyValue('width'))
+
+    for(n in fontsToView){
+    
+        if (charsBox_ligatures.parentElement.classList.contains($fonts[n].class)) {
+            
+            if ($fonts[n].ligatures) {
+                
+                charsBox_ligatures.textContent = 'Ligaduras: '+ $fonts[n].ligatures
+            }
+        }
+    }
+})
+
+
+/*  TODO:    1 ▶ Lorens
+◈──────────────────────────────────────────────────────◈ */
+
+var lorensBox = document.querySelector('.lorensBox')
+
+for(n in fontsToView){
+
+    lorensBox.innerHTML += `
+
+    <details class="type_2 ${$fonts[n].class}">
+
+        <summary>${$fonts[n].name}</summary>
+
+        <div class="content lorem ${$fonts[n].class}" contenteditable></div>        
+
+    </details>
+    `
+}
+
+/*  */
+lorensBox.innerHTML += `
+    
+<details class="type_2 ${Font_In_Development.class}" open>
+    
+    <summary>Font In Development: ${Font_In_Development.name}</summary>
+
+    <div class="content lorem ${Font_In_Development.class}" contenteditable></div>        
+
+</details>
+`
+
+
+var lorens = document.querySelectorAll('.lorem')
+
+lorens.forEach(function (lorem) {
+
+    lorem.innerHTML = `
+    <p style="text-align: center; letter-spacing: 0px;">Tec OP - Cybernetic. This is a hi-tech cyberpunk style RPG game.</p>
+    
+    <p style="text-align: center;" contenteditable>O seguinte ∡ mede 30°… A configuração do ângulo é ⦨.</p>
+
+    <div>
+    │, (Box), [Box], {Box}, 〈Box〉, ﴾Box﴿<br>
+    └─├─, 1ª, 2º,  ∢ 30°, ⦨ M ⊾, 5℃ 5℉. ±∛<span style="text-decoration: overline;">8</span>, ∜<span style="text-decoration: overline;">9⁶</span>, Δx, ΔX, ∫₂ 4x dx, ∮⁶5x, ⨌⁹2x, 7 ≡ x, ±6, ±x, x - 8, x ≅ 4⁹⁶ ⁻ ⁹ ⁼ ⁽⁰⁾<br>
+    • 6, ‣ 1, › 4, ▻ 6 , ✦ Lk, ★ Ok, ✰  Ok, ✩ Ok, ✯ Ok, ✪ 7, ➢ Item: .., ➭ Item: .., Nidoran ♂, Nidoran ♀, ♪ Som, ◉ Yes, ○ No, ◈ Yes, ◇ No, ----------> 6, Draws: △□◇⬠⬡○
+    </div>
+
+    <dl>
+        <div><dt>Termo 1: </dt><dd>Descrição 1.</dd></div>
+        <div><dt>Termo 2: </dt><dd>Descrição 2.</dd></div>
+    </dl>`
+})
+
+// Tec OP - Cybernetic. This is a hi-tech cyberpunk style RPG game. <br> 5° 5℃ 5℉. 1ª, 2º, • 6, ‣ X1, √<span style="text-decoration: overline;">4</span>, ∛8, ∜16, 7 ≡ x, │├└─, ▻ 6 , ★ Geo, <span style="display: inline-block; transform: scale(1.24);">✰</span>  Geo, <span style="display: inline-block; transform: scale(1.27);">✩</span> Geo, <span style="display: inline-block; transform: scale(1.27);">✯</span> Geo, Nidoran ♂, Nidoran ♀, <span style="display: inline-block; transform: scale(1.15);">➢</span> Item: ..., <span style="display: inline-block; transform: scale(1.3);">➭</span> Item: ..., ∮⁶x⁹, ✦ Star, (Pop), [Pop], {Pop}, 〈Pop〉, ﴾Pop﴿
+
+
+/*  TODO:    1 ▶ Vertical Positioning
+◈──────────────────────────────────────────────────────◈ */
+
+var verticalPositioning = document.querySelector('.verticalPositioning')
+
+verticalPositioning.classList.add(Font_In_Development.class)
+
+
+/*  TODO:    1 ▶ Quality
+◈──────────────────────────────────────────────────────◈ */
+
+var quality = document.querySelector('.quality')
+
+quality.classList.add(Font_In_Development.class)
+
+
+/*  TODO:    1 ▶ Extra
+◈──────────────────────────────────────────────────────◈ */
+/* 
+var extra = document.querySelector('.extra')
+
+extra.classList.add(Font_In_Development.class)
+ */
+
+/*
+◈──────────────────────────────────────────────────────◈
+TODO: Generator Fonts
+◈──────────────────────────────────────────────────────◈ */
+
+/*  TODO:    1 ▶ Building The Sheets
+◈──────────────────────────────────────────────────────◈ */
+
+// var fontInDevelopment = { name, ligatures: ['>=', '<='] }
+
+var sheetsGroup = document.querySelector('.sheetsGroup')
+
+// Uso essa string para por os caracteres normais no web app para criar as folhas das fontes, pórem, antes é necessário trocar o caractere 'æ' por '𐄂'.
+var sheets_normalsChars_allChars = `!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]_\`abcdefghijklmnopqrstuvwxyz{|}¦§©ª¬®°±²³µ¶¹º¼½¾ÀÁÂÃÇÉÊÍÓÔÕ×Úßàáâãçéêíóôõ÷úˆΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρςστυφχψωᴬᴮᴰᴱᵃᵇᵈᵉᵍᵏᵐᵒᵖᵗᵘᵚᵛᵡ–“•‣…‹›⁄⁰⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿ₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ℂ℃℉ℕℚℝ™ℤ⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞←↑→↓⇌⇐⇑⇒⇓⇔⇦⇧⇨⇩∀∁∂∃∄∅∇∈∉∏∑−∕∙√∛∜∝∞∟∠∡∢∥∦∩∪∫∬∭∮∯∰∱∲∳∼≃≅≈≠≡≢≤≥≪≫⊂⊃⊄⊅⊆⊈⊾⋘⋙⌘⌥⌫⍟⏎─│└├█■□▣▲△▶▷►▻▼▽◀◁◄◅◆◇◈◉○●◐◑◔◕★☻☼☾♀♂♠♡♢♣♤♥♦♧♪♫✓✞✦✩✪✯✰❅➢➣➭⦨⦩⦪⦫⦬⦭⦮⦯⨌⬟⬠⬡⬢〈〉﴾﴿￼�æ`// 𐄂
+
+var sheets_ligaturesChars_allChars = Font_In_Development.ligatures
+
+var sheets_normalsChars_qtSheets
+var sheets_normalsChars_qtCellsPerGrid
+var sheets_ligaturesChars_qtSheets
+var sheets_ligaturesChars_qtCellsPerGrid
+
+if (sheetsGroup.classList.contains('size3')) { 
+    sheets_normalsChars_qtSheets = 7; 
+    sheets_normalsChars_qtCellsPerGrid = 64
+    sheets_ligaturesChars_qtSheets = 1
+    sheets_ligaturesChars_qtCellsPerGrid = 32
+}
+
+/* if (sheetsGroup.classList.contains('size7')) { sheets_normalsChars_qtSheets = 28, sheets_normalsChars_qtCellsPerGrid = 16 } */
+
+var sheets_qt = sheets_normalsChars_qtSheets + sheets_ligaturesChars_qtSheets
+
+for (i = 0; i < sheets_qt; i++) {
+
+    window['sheet'+ (i +1) +''] = document.createElement('div')
+    window['sheet'+ (i +1) +''].classList.add('sheet')
+    window['sheet'+ (i +1) +''].classList.add('sheet'+ (i +1) +'')
+    sheetsGroup.append(window['sheet'+ (i +1) +''])
+
+    var grid = document.createElement('div')
+    grid.classList.add('grid')
+    window['sheet'+ (i +1) +''].append(grid)
+
+    var buildingTheSheetsOfNormalsCharacters = i < sheets_normalsChars_qtSheets
+
+    if (buildingTheSheetsOfNormalsCharacters) {
+        
+        for (i2 = 0; i2 < sheets_normalsChars_qtCellsPerGrid; i2++) {
+        
+            window['sheets_normalsChars_cell'+ (i2 +1) +''] = document.createElement('div')
+            window['sheets_normalsChars_cell'+ (i2 +1) +''].classList.add('cell')
+            window['sheets_normalsChars_cell'+ (i2 +1) +''].classList.add('sheets_normalsChars_cell')
+            window['sheets_normalsChars_cell'+ (i2 +1) +''].classList.add('sheets_normalsChars_cell'+ (i2 +1) +'')
+            grid.append(window['sheets_normalsChars_cell'+ (i2 +1) +''])
+
+            var charLabel = document.createElement('div')
+            charLabel.classList.add('charLabel')
+            window['sheets_normalsChars_cell'+ (i2 +1) +''].append(charLabel)
+
+            var charCanvas = document.createElement('div')
+            charCanvas.classList.add('charCanvas')
+            window['sheets_normalsChars_cell'+ (i2 +1) +''].append(charCanvas)
+
+            var charBG = document.createElement('div')
+            charBG.classList.add('charBG')
+            drawBG(buildingTheSheetsOfNormalsCharacters, i, i2, charBG)
+            charCanvas.append(charBG)
+
+            var charDraw = document.createElement('div')
+            charDraw.classList.add('charDraw')
+            charDraw.textContent = drawTheChar(buildingTheSheetsOfNormalsCharacters, i, i2)
+            charBG.append(charDraw)
+        }        
+
+    } else {
+        
+        for (i2 = 0; i2 < sheets_ligaturesChars_qtCellsPerGrid; i2++) {
+        
+            window['sheets_ligaturesChars_cell'+ (i2 +1) +''] = document.createElement('div')
+            window['sheets_ligaturesChars_cell'+ (i2 +1) +''].classList.add('cell')
+            window['sheets_ligaturesChars_cell'+ (i2 +1) +''].classList.add('sheets_ligaturesChars_cell')
+            window['sheets_ligaturesChars_cell'+ (i2 +1) +''].classList.add('sheets_ligaturesChars_cell'+ (i2 +1) +'')
+            grid.append(window['sheets_ligaturesChars_cell'+ (i2 +1) +''])
+
+            var charLabel = document.createElement('div')
+            charLabel.classList.add('charLabel')
+            window['sheets_ligaturesChars_cell'+ (i2 +1) +''].append(charLabel)
+
+            var charCanvas = document.createElement('div')
+            charCanvas.classList.add('charCanvas')
+            window['sheets_ligaturesChars_cell'+ (i2 +1) +''].append(charCanvas)
+
+            var charBG = document.createElement('div')
+            charBG.classList.add('charBG')
+            drawBG(buildingTheSheetsOfNormalsCharacters, i, i2, charBG)
+            charCanvas.append(charBG)
+
+            var charDraw = document.createElement('div')
+            charDraw.classList.add('charDraw')
+            charDraw.textContent = drawTheChar(buildingTheSheetsOfNormalsCharacters, i, i2)
+            charBG.append(charDraw)
+        }
+    }
+}
+
+function drawTheChar(buildingTheSheetsOfNormalsCharacters, indexSheet, indexCell) {
+
+    if (sheetsGroup.classList.contains('size7')) {  
+
+        if ((indexCell === 3)) {
+                
+            return ''
+
+        } else { return getNextChar(buildingTheSheetsOfNormalsCharacters) }
+
+    } else if (sheetsGroup.classList.contains('size3')) {  
+
+        if (buildingTheSheetsOfNormalsCharacters) {  
+
+            if (indexSheet <= 2) {
+
+                if ((indexCell === 6) || (indexCell === 7) || (indexCell === 14) || (indexCell === 15)) {
+                    
+                    return ''
+
+                } else { return getNextChar(buildingTheSheetsOfNormalsCharacters) }
+
+            } else {
+
+                if (   (indexCell === 5) || (indexCell === 6) || (indexCell === 7) || 
+                        (indexCell === 13) || (indexCell === 14) || (indexCell === 15)) {
+                    
+                    return ''
+
+                } else { return getNextChar(buildingTheSheetsOfNormalsCharacters) }
+            }
+
+        } else {
+
+            if ((indexCell === 2) || (indexCell === 3) || (indexCell === 6) || (indexCell === 7)) {
+                    
+                    return ''
+
+            } else { return getNextChar(buildingTheSheetsOfNormalsCharacters) }
+        }
+    }
+}
+
+function drawBG(buildingTheSheetsOfNormalsCharacters, indexSheet, indexCell, charBG) {
+
+    if (sheetsGroup.classList.contains('size7')) {  
+
+        var charBG_size7_backgroundImage = `
+        url('images/templates/size7/normals/cell/lines.svg'),
+        url('images/templates/size7/normals/cell/empty.png')`;
+
+        if ((indexCell === 3)) {
+                
+        } else { charBG.style.backgroundImage = charBG_size7_backgroundImage }
+
+    } else if (sheetsGroup.classList.contains('size3')) {
+
+        if (buildingTheSheetsOfNormalsCharacters) {
+            
+            var charBG_size3_backgroundImage = `
+            url('images/templates/size3/normals/cell/lines.svg'),
+            url('images/templates/size3/normals/cell/empty.png')`;
+            // var charBG_size3_backgroundImage = `url('images/templates/size3/normals/cell/empty.png')`; 
+            // var charBG_size3_backgroundImage = ``;
+            
+            if (indexSheet <= 2) {
+
+                if ((indexCell === 6) || (indexCell === 7) || (indexCell === 14) || (indexCell === 15)) {
+                    
+                } else { charBG.style.backgroundImage = charBG_size3_backgroundImage }
+
+            } else {
+
+                if (   (indexCell === 5) || (indexCell === 6) || (indexCell === 7) || 
+                        (indexCell === 13) || (indexCell === 14) || (indexCell === 15)) {
+                    
+                } else { charBG.style.backgroundImage = charBG_size3_backgroundImage }
+            }
+
+        } else {
+            
+            var charBG_size3_backgroundImage = `
+            url('images/templates/size3/ligatures/cell/lines.svg'),
+            url('images/templates/size3/ligatures/cell/empty.png')`;
+            // var charBG_size3_backgroundImage = `url('images/templates/size3/ligatures/cell/empty.png')`; 
+            // var charBG_size3_backgroundImage = ``;
+
+            if ((indexCell === 2) || (indexCell === 3) || (indexCell === 6) || (indexCell === 7)) {
+                
+            } else { charBG.style.backgroundImage = charBG_size3_backgroundImage }
+        }
+    }
+}
+
+function getNextChar(buildingTheSheetsOfNormalsCharacters) {
+    
+    if (buildingTheSheetsOfNormalsCharacters) {
+
+        var actualChar = sheets_normalsChars_allChars[0]
+
+        sheets_normalsChars_allChars = sheets_normalsChars_allChars.slice(1)
+
+        return actualChar
+        return ''
+
+    } else {
+
+        sheets_ligaturesChars_allChars = sheets_ligaturesChars_allChars.trim()
+
+        if (sheets_ligaturesChars_allChars !== '') { // sheets_ligaturesChars_allChars.indexOf(',') !== -1
+
+            if (sheets_ligaturesChars_allChars.indexOf(',') === -1) {
+
+                var actualChar = sheets_ligaturesChars_allChars
+
+                sheets_ligaturesChars_allChars = ''
+
+                return actualChar
+                
+            } else {
+                
+                var actualChar = sheets_ligaturesChars_allChars.slice(0, sheets_ligaturesChars_allChars.indexOf(','))
+
+                actualChar = actualChar.trim()
+
+                sheets_ligaturesChars_allChars = sheets_ligaturesChars_allChars.slice(sheets_ligaturesChars_allChars.indexOf(',') + 1)
+
+                return actualChar
+            }
+        }
+    }
+}
+
+
+/*  TODO:    1 ▶ Button Cell Lines
+◈──────────────────────────────────────────────────────◈ */
+
+var btnCellsLines = document.querySelector('.btnCellsLines')
+
+btnCellsLines.addEventListener('click', function(evt) {
+
+    var allCharBG = document.querySelectorAll('.charBG')
+
+    allCharBG.forEach(function (charBG) {
+    
+        charBG.classList.toggle('cellEmpty')
+    })
+})
+
+
+/*  TODO:    1 ▶ Sheets Fonts Edits
+◈──────────────────────────────────────────────────────◈ */
+
+var isBold = false
+
+
+/*  TODO:        2 ▶ Various
+◈──────────────────────────────────────────────────────◈ */
+
+/*  TODO:            3 ▶ Ligatures Edits
+◈──────────────────────────────────────────────────────◈ */
+
+function editLigatures($, cD, dy_initial) {
+
+    if (Font_In_Development.class === '...') { }
+    
+    if ($ === '+-') { 
+        cD.style.top = dy_initial + 3 +'px'
+        cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/ligatures/basic/+-.svg') center / 100%;"></div>`;
+    }
+    
+    if ($ === '--') { 
+        cD.style.top = dy_initial + 3 +'px'
+        cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/ligatures/basic/--.svg') center / 100%;"></div>`;
+    }
+
+    if ($ === '...') { 
+        cD.style.top = dy_initial + 3 +'px'
+        cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/ligatures/basic/3points.svg') center / 100%;"></div>`;
+    }
+
+    if ($ === '<<') { cD.textContent = '≪'; cD.style.transform = `scale(1.42)`; cD.style.top = dy_initial - 14 +'px' }
+
+    if ($ === '<<<') { cD.textContent = '⋘'; cD.style.transform = `scaleX(1.3106) scaleY(1.42)`; cD.style.top = dy_initial - 33 +'px'; cD.style.left = 4 +'px' }
+
+    if ($ === '<=') { 
+        cD.style.top = dy_initial + 3 +'px'
+        cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/ligatures/basic/<=.svg') center / 100%;"></div>`;
+    }
+
+    if ($ === '>=') { 
+        cD.style.top = dy_initial + 3 +'px'
+        cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/ligatures/basic/>=.svg') center / 100%;"></div>`;
+    }
+
+    if ($ === '<=>') { 
+        cD.style.top = dy_initial + 3 +'px'
+        cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/ligatures/basic/<=>.svg') center / 100%;"></div>`;
+    }
+
+    if ($ === '=>') { 
+        cD.style.top = dy_initial + 3 +'px'
+        cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/ligatures/basic/=>.svg') center / 100%;"></div>`;
+    }
+
+    if ($ === '<=>') { 
+        cD.style.top = dy_initial + 3 +'px'
+        cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/ligatures/basic/<=>.svg') center / 100%;"></div>`;
+    }
+
+    if ($ === '=>') { cD.textContent = '⇐'; cD.style.transform = `rotateZ(180deg)`; cD.style.top = dy_initial + 5 +'px' }
+
+    if ($ === '>>') { cD.textContent = '≫'; cD.style.transform = `scale(1.42)`; cD.style.top = dy_initial - 14 +'px' }
+
+    if ($ === '>>>') { cD.textContent = '⋙'; cD.style.transform = `scaleX(1.3106) scaleY(1.42)`; cD.style.top = dy_initial - 33 +'px'; cD.style.left = 4 +'px' }
+
+    if ($ === '{}') { 
+        cD.style.top = dy_initial + 3 +'px'
+        cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/ligatures/basic/∅.svg') center / 100%;"></div>`;
+    }
+}
+
+
+/*  TODO:            3 ▶ Template: Font Name
+◈──────────────────────────────────────────────────────◈ */
+
+if (Font_In_Development.name === '...') {
+
+    sheetsGroup.classList.add(Font_In_Development.baseFontClass)
+    
+    var dy_initial
+
+    if (sheetsGroup.classList.contains('size3')) { dy_initial = 0 } 
+    if (sheetsGroup.classList.contains('size7')) { dy_initial = 0 }
+
+    var charsDraws = document.querySelectorAll('.charDraw')
+
+    charsDraws.forEach(function (cD) {
+
+        cD.style.fontSize = Font_In_Development.fontSizeOnSheets +'px'
+        cD.style.position = 'relative'
+        cD.style.top = dy_initial +'px'
+        var $ = cD.textContent
+
+        var fontClass
+        editLigatures($, cD, dy_initial)
+
+        if ($ === '') {
+
+            
+        }
+    })
+}
+
+
+/*  TODO:            3 ▶ Verdial Regular
+◈──────────────────────────────────────────────────────◈ */
+
+if (Font_In_Development.name === 'Verdial Regular') {
+
+    sheetsGroup.classList.add(Font_In_Development.baseFontClass)
+    
+    var dy_initial
+    var dy_arial
+
+    if (sheetsGroup.classList.contains('size3')) { dy_initial = -3 }
+    if (sheetsGroup.classList.contains('size7')) { dy_initial = 19 }
+
+    if (sheetsGroup.classList.contains('size1')) { dy_arial = 0; console.error(`O valor da variável 'dy_arial' está incorreto!`) }
+    if (sheetsGroup.classList.contains('size2')) { dy_arial = 0; console.error(`O valor da variável 'dy_arial' está incorreto!`) }
+    if (sheetsGroup.classList.contains('size3')) { dy_arial = 8 }
+    if (sheetsGroup.classList.contains('size4')) { dy_arial = 0; console.error(`O valor da variável 'dy_arial' está incorreto!`) }
+    if (sheetsGroup.classList.contains('size5')) { dy_arial = 0; console.error(`O valor da variável 'dy_arial' está incorreto!`) }
+    if (sheetsGroup.classList.contains('size6')) { dy_arial = 0; console.error(`O valor da variável 'dy_arial' está incorreto!`) }
+    if (sheetsGroup.classList.contains('size7')) { dy_arial = 0; console.error(`O valor da variável 'dy_arial' está incorreto!`) }
+
+    var charsDraws = document.querySelectorAll('.charDraw')
+
+    charsDraws.forEach(function (cD) {
+
+        cD.style.fontSize = Font_In_Development.fontSizeOnSheets +'px'
+        cD.style.position = 'relative'
+        cD.style.top = dy_initial +'px'
+        var $ = cD.textContent
+
+        var fontClass
+        editLigatures($, cD, dy_initial)
+
+        // cD.style.fontWeight = 'Bold'
+
+/* */ 
+        if (($ === 's') || ($ === 'D') || ($ === 'E') || ($ === 'F') || ($ === 'I') || ($ === 'J') || ($ === 'M') || ($ === 'O') || ($ === 'Q') || ($ === 'S') || ($ === 'U') || ($ === 'É') || ($ === 'Ê') || ($ === 'Í') || ($ === 'Ó') || ($ === 'Õ') || ($ === 'Ô') || ($ === 'Ú') || ($ === '±') || ($ === '…') || ($ === '?') || ($ === '$') || ($ === '*') || ($ === '█') || ($ === 'α') || ($ === 'π') || ($ === 'Ε') || ($ === 'Θ') || ($ === 'Ν') || ($ === 'Ξ') || ($ === 'Ο') || ($ === 'Ψ') || ($ === '│') || ($ === '├') || ($ === '└') || ($ === '─') || ($ === '™') || ($ === '☺') || ($ === '☻') || ($ === '✰') || ($ === '✩') || ($ === '✯') || ($ === '✪') || ($ === '✦') || ($ === '✷') || ($ === '☼') || ($ === '❅')) {  // || ($ === 'ª') || ($ === 'º') || ($ === '⇧') || ($ === '⇩') || ($ === '⇦') || ($ === '⇨')
+
+            cD.classList.add('arialSettings')
+            cD.style.top = dy_initial + dy_arial +'px'
+        }
+
+        if ($ === 'À') { cD.innerHTML = '<div class="charPiece arialSettings" style="top: -65px; left: 68px;">`</div><div class="charPiece">A</div>' }
+        if ($ === 'Á') { cD.innerHTML = '<div class="charPiece arialSettings" style="top: -65px; left: 77px;">´</div><div class="charPiece">A</div>' }
+        if ($ === 'Â') { cD.innerHTML = '<div class="charPiece arialSettings" style="top: -65px; left: 73px;">ˆ</div><div class="charPiece">A</div>' }
+        // if ($ === 'Ã') { cD.innerHTML = '<div class="charPiece arialSettings" style="top: -67px; left: 73px;">˜</div><div class="charPiece">A</div>' }
+        if ($ === 'Ã') { cD.innerHTML = '<div class="charPiece" style="font-family: Verdana; top: -64px; left: 47px;">˜</div><div class="charPiece">A</div>' }
+        if ($ === 'É') { cD.innerHTML = '<div class="charPiece arialSettings" style="top: -71px; left: 77px;">´</div><div class="charPiece">E</div>' }
+        if ($ === 'Ê') { cD.innerHTML = '<div class="charPiece arialSettings" style="top: -71px; left: 73px;">ˆ</div><div class="charPiece">E</div>' }
+        if ($ === 'Í') { cD.innerHTML = '<div class="charPiece arialSettings" style="top: -71px; left: 77px;">´</div><div class="charPiece">I</div>' }
+        if ($ === 'Ó') { cD.innerHTML = '<div class="charPiece arialSettings" style="top: -71px; left: 77px;">´</div><div class="charPiece">O</div>' }
+        if ($ === 'Ô') { cD.innerHTML = '<div class="charPiece arialSettings" style="top: -71px; left: 73px;">ˆ</div><div class="charPiece">O</div>' }
+        if ($ === 'Õ') { cD.innerHTML = '<div class="charPiece" style="font-family: Verdana; top: -69px; left: 47px;">˜</div><div class="charPiece">O</div>' }
+        if ($ === 'Ú') { cD.innerHTML = '<div class="charPiece arialSettings" style="top: -71px; left: 74px;">´</div><div class="charPiece">U</div>' }
+
+        if ($ === 'í') { cD.innerHTML = '<div class="charPiece" style="top: -38px; left: 50px;">´</div><div class="charPiece">ι</div>' }
+
+        if ($ === 'j') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/j.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '.') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/point.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === ':') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/2points.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === ';') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/semicolon.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '!') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/exclamation.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '?') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/interrogation.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '…') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/3points.svg') center / 100%;"></div>`;
+        }
+
+        // if ($ === '–') { cD.textContent = 'I'; cD.style.transform = `scale(0.82353) rotateZ(-90deg)`; cD.style.top = dy_initial + 13 +'px' }
+        
+        if (($ === '‹') || ($ === '›')) { cD.style.transform = `scale(1.55844)`; cD.style.top = dy_initial - 15 +'px' }
+
+        var dy_wrappers = -14
+        if (($ === '(') || ($ === ')') || ($ === '[') || ($ === ']') || ($ === '{') || ($ === '}')) { cD.style.top = dy_initial + dy_wrappers +'px' }
+        if (($ === '〈') || ($ === '〉') ) { cD.style.top = dy_initial + dy_wrappers + 14 +'px' }
+        // if (($ === '﴾') || ($ === '﴿')) { cD.style.transform = `scale(1.1)`; cD.style.top = dy_initial + dy_wrappers - 1 +'px' }
+        if (($ === '﴾') || ($ === '﴿')) { cD.style.transform = `scale(1.17)`; cD.style.top = dy_initial - 17 +'px' }
+
+        if ($ === 'ª') {
+            cD.classList.add('arialSettings')
+            cD.style.top = dy_initial + dy_arial +'px'
+            // cD.innerHTML = `
+            // <div class="charPiece" style="top: -35px;">ª</div>
+            // <div class="charPiece" style="transform: scaleX(0.545454) scaleY(1.35); top: -129px;">_</div>`;
+
+            // cD.innerHTML = `
+            // <div class="charPiece" style="transform: scale(0.9); top: -45px;">ª</div>
+            // <div class="charPiece" style="transform: scaleX(0.5) scaleY(1.15); top: -128px;">_</div>`;
+
+            // cD.innerHTML = `
+            // <div class="charPiece" style="transform: scale(0.95); top: -45px;">ª</div>
+            // <div class="charPiece" style="transform: scaleX(0.5) scaleY(1.07); top: -121px;">_</div>`;
+
+            cD.innerHTML = `
+            <div class="charPiece" style="top: -45px;">ª</div>
+            <div class="charPiece" style="transform: scaleX(0.545454) scaleY(1.07); top: -121px;">_</div>`;
+        }
+
+        if ($ === 'º') {
+            cD.classList.add('arialSettings')
+            cD.style.top = dy_initial + dy_arial +'px'
+            // cD.innerHTML = `
+            // <div class="charPiece" style="top: -35px;">º</div>
+            // <div class="charPiece" style="transform: scaleX(0.545454) scaleY(1.35); top: -129px;">_</div>`;
+
+            // cD.innerHTML = `
+            // <div class="charPiece" style="transform: scale(0.9); top: -45px;">º</div>
+            // <div class="charPiece" style="transform: scaleX(0.5) scaleY(1.15); top: -128px;">_</div>`;
+
+            // cD.innerHTML = `
+            // <div class="charPiece" style="transform: scale(0.95); top: -45px;">º</div>
+            // <div class="charPiece" style="transform: scaleX(0.5) scaleY(1.07); top: -121px;">_</div>`;
+
+            cD.innerHTML = `
+            <div class="charPiece" style="top: -45px;">º</div>
+            <div class="charPiece" style="transform: scaleX(0.545454) scaleY(1.07); top: -121px;">_</div>`;
+        }
+
+        // if ($ === '#') { cD.style.transform = `skewX(14deg)`; cD.style.top = dy_initial + 0 +'px' }
+        if ($ === '#') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/hashtag.svg') center / 100%;"></div>`;
+        }
+
+        if (($ === '/') || ($ === '\\')) { cD.style.transform = `scale(1)`; cD.style.top = dy_initial - 10 +'px' }
+        if (($ === '|') || ($ === '¦')) { cD.style.transform = `scale(1)`; cD.style.top = dy_initial - 13 +'px' }
+
+        if ($ === '–') { cD.style.transform = `scaleX(2.475)`; cD.style.top = dy_initial + 0 +'px' }
+
+        // Capital pi
+        if ($ === 'Π') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/capitalPi.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === 'Δ') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/Δ.png') center / 100%;"></div>`;
+        }
+
+        if ($ === '∇') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/∇.png') center / 100%;"></div>`;
+        }
+
+        if ($ === '∙') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/point_multiplication.svg') center / 100%;"></div>`;
+        }
+
+        if (($ === '∃') || ($ === '∄') || ($ === '♪') || ($ === '✞')) { cD.style.fontFamily = 'Times New Roman' }
+        if ($ === '∃') { cD.style.transform = `scale(1.00840336)`; cD.style.top = dy_initial + 9 +'px' }
+        if ($ === '∄') { cD.style.transform = `scale(1.29032258)`; cD.style.top = dy_initial - 6 +'px' }
+
+        var dy_exponent = 6
+        var dy_exponent_1to5AND7to8 = -28
+
+        if (($ === '⁺') || ($ === '⁻') || ($ === '⁼') || ($ === '⁽') || ($ === '⁾')) { 
+            cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + 1 +'px'
+        }
+
+        if ($ === '⁰') { cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent +'px' }
+        if ($ === '¹') { cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_exponent_1to5AND7to8  +'px' }
+        if ($ === '²') { cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_exponent_1to5AND7to8 +'px' }
+        if ($ === '³') { cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_exponent_1to5AND7to8 +'px' }
+        if ($ === '⁴') { cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_exponent_1to5AND7to8 +'px' }
+        if ($ === '⁵') { cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_exponent_1to5AND7to8 +'px' }
+        if ($ === '⁶') { cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent +'px' }
+        if ($ === '⁷') { cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_exponent_1to5AND7to8 +'px' }
+        if ($ === '⁸') { cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_exponent_1to5AND7to8 +'px' }
+        if ($ === '⁹') { cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent +'px' }
+
+        if (($ === 'ᴬ') || ($ === 'ᴮ') || ($ === 'ᴰ') || ($ === 'ᴱ')) {
+            // cD.style.transform = `scale(1.537)` ; cD.style.top = dy_initial + dy_exponent + 7 +'px'
+            cD.style.transform = `scaleX(1.4) scaleY(1.537)` ; cD.style.top = dy_initial + dy_exponent + 7 +'px'
+        }
+
+        if (($ === 'ᵃ') || ($ === 'ᵇ') || ($ === 'ᵈ') || ($ === 'ᵉ') || ($ === 'ᵍ') || ($ === 'ᵏ') || ($ === 'ᵐ') || ($ === 'ⁿ') || ($ === 'ᵒ') || ($ === 'ᵖ') || ($ === 'ᵗ') || ($ === 'ᵘ') || ($ === 'ᵛ') || ($ === 'ᵚ')) {
+            cD.style.transform = `scale(1.165)` ; cD.style.top = dy_initial + dy_exponent + 3 +'px'
+        }
+
+        if ($ === 'ᵡ') { cD.textContent = 'x'; cD.style.transform = `scale(0.6888888)`; cD.style.top = dy_initial + dy_exponent - 51 +'px'; cD.style.textShadow = '-3px 0px black, 4px 0px black' }
+        if ($ === 'ⁿ') { cD.style.transform = `scale(0.7848)` ; cD.style.top = dy_initial + dy_exponent - 22 +'px' }
+
+        // ') || ($ === '') || ($ === '') || ($ === '') || ($ === '') || ($ === '') || ($ === '') || ($ === '') || ($ === '') || ($ === '')
+
+        var dy_SBS = 90 // SBS - Superscripts Become Subscripts
+
+        if ($ === '₊') {  cD.textContent = '⁺'; cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + 1 + dy_SBS +'px' }
+        if ($ === '₋') {  cD.textContent = '⁻'; cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + 1 + dy_SBS +'px' }
+        if ($ === '₌') {  cD.textContent = '⁼'; cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + 1 + dy_SBS +'px' }
+        if ($ === '₍') {  cD.textContent = '⁽'; cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + 1 + dy_SBS +'px' }
+        if ($ === '₎') {  cD.textContent = '⁾'; cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + 1 + dy_SBS +'px' }
+        if ($ === '₀') { cD.textContent = '⁰'; cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_SBS +'px' }
+        if ($ === '₁') { cD.textContent = '¹'; cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_exponent_1to5AND7to8 + dy_SBS  +'px' }
+        if ($ === '₂') { cD.textContent = '²'; cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_exponent_1to5AND7to8 + dy_SBS +'px' }
+        if ($ === '₃') { cD.textContent = '³'; cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_exponent_1to5AND7to8 + dy_SBS +'px' }
+        if ($ === '₄') { cD.textContent = '⁴'; cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_exponent_1to5AND7to8 + dy_SBS +'px' }
+        if ($ === '₅') { cD.textContent = '⁵'; cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_exponent_1to5AND7to8 + dy_SBS +'px' }
+        if ($ === '₆') { cD.textContent = '⁶'; cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_SBS +'px' }
+        if ($ === '₇') { cD.textContent = '⁷'; cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_exponent_1to5AND7to8 + dy_SBS +'px' }
+        if ($ === '₈') { cD.textContent = '⁸'; cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_exponent_1to5AND7to8 + dy_SBS +'px' }
+        if ($ === '₉') { cD.textContent = '⁹'; cD.style.transform = `scale(1.1)` ; cD.style.top = dy_initial + dy_exponent + dy_SBS +'px' }
+
+        if ($ === '∀') { cD.style.transform = `scale(1.3)`; cD.style.top = dy_initial - 20 +'px' }
+        if ($ === '∁') { cD.style.transform = `scale(1.29)`; cD.style.top = dy_initial - 18 +'px' }
+        if ($ === '∏') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/productive.svg') center / 100%;"></div>`;
+        }
+        if ($ === '∑') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/summation.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '+') { cD.style.top = dy_initial - 1 +'px' }
+
+        if ($ === '−') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/-.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '÷') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/÷.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '±') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/±.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '%') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/%.svg') center / 100%;"></div>`;
+        }
+
+        // if ($ === '√') { cD.style.transform = `scale(1.02565)`; cD.style.top = dy_initial - 14 +'px' }
+        if ($ === '√') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/√.svg') center / 100%;"></div>`;
+        }
+        
+        // if ($ === '∛') { cD.innerHTML = `
+        //     <div class="charPiece" style="transform: scale(0.44); top: -104px; left: 6px; font-weight: 400;">3</div>
+        //     <div class="charPiece" style="transform: scale(1.02565); top: -50px">√</div>`         
+        // }
+        if ($ === '∛') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/∛.svg') center / 100%;"></div>`;
+        }
+        
+        // if ($ === '∜') { cD.innerHTML = `
+        //     <div class="charPiece" style="transform: scale(0.44); top: -104px; left: 6px; font-weight: 400;">4</div>
+        //     <div class="charPiece" style="transform: scale(1.02565); top: -50px">√</div>`         
+        // }
+        if ($ === '∜') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/∜.svg') center / 100%;"></div>`;
+        }
+
+        // if ($ === '∝') { cD.style.transform = `scale(2.454545)`; cD.style.top = dy_initial - 74 +'px' }
+        if ($ === '∝') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/proportional.svg') center / 100%;"></div>`;
+        }
+
+        // if ($ === '∼') { cD.style.transform = `scale(1.37143)`; cD.style.top = dy_initial - 35 +'px' }
+        if ($ === '∼') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/∼.svg') center / 100%;"></div>`;
+        }
+
+        // if ($ === '≃') { cD.style.transform = `scale(1.37143)`; cD.style.top = dy_initial - 19 +'px' }
+        if ($ === '≃') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/≃.svg') center / 100%;"></div>`;
+        }
+
+        // if ($ === '≅') { cD.style.transform = `scale(1.37143)`; cD.style.top = dy_initial - 23 +'px' }
+        if ($ === '≅') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/≅.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '≠') { cD.innerHTML = `
+            <div class="charPiece" style="transform: scaleX(0.466666) scaleY(0.808) skewX(135deg); top: -28px; left: 71px; font-weight: bold;">l</div>
+            <div class="charPiece" style="top: -38px">=</div>`;
+        }
+        // if ($ === '≢') { cD.style.transform = `scale(1.3913)`; cD.style.top = dy_initial - 21 +'px' }
+        if ($ === '≢') { cD.innerHTML = `
+            <div class="charPiece" style="transform: scaleX(0.466666) scaleY(1.088) skewX(128deg); top: -39px; left: 71px; font-weight: bold;">l</div>
+            <div class="charPiece" style="top: -49px">≡</div>`; 
+            cD.style.top = dy_initial + 10 +'px'
+        }
+        if ($ === '≤') { cD.innerHTML = `
+            <div class="charPiece" style="transform: scaleX(0.89524) scaleY(1.4) skewY(15deg); top: -116px; left: 47px;">_</div>
+            <div class="charPiece" style="top: -60px; left: 32px;"><</div>`;
+            // cD.style.top = dy_initial + 22 +'px'
+        }
+        if ($ === '≥') { cD.innerHTML = `
+            <div class="charPiece" style="transform: scaleX(-0.89524) scaleY(1.4) skewY(15deg); top: -116px; left: 47px;">_</div>
+            <div class="charPiece" style="transform: scaleX(-1); top: -60px; left: 32px;"><</div>`;
+            // cD.style.top = dy_initial + 22 +'px'
+        }
+        if (($ === '≪') || ($ === '≫')) { cD.style.transform = `scale(1.42)`; cD.style.top = dy_initial - 14 +'px' }
+        // if (($ === '⋘') || ($ === '⋙')) { cD.style.transform = `scale(1.3106)`; cD.style.top = dy_initial - 26 +'px'; cD.style.left = 4 +'px' }
+        if (($ === '⋘') || ($ === '⋙')) { cD.style.transform = `scaleX(1.3106) scaleY(1.42)`; cD.style.top = dy_initial - 33 +'px'; cD.style.left = 4 +'px' }
+
+        // if (($ === '∟') || ($ === '∠') || ($ === '∡') || ($ === '∢') || ($ === '⊾')) { cD.style.transform = `scale(1.72)`; cD.style.top = dy_initial - 46 +'px' }
+        //if (($ === '∟') || ($ === '⊾')) { cD.style.transform = `scale(1.72)`; cD.style.top = dy_initial - 46 +'px' }
+
+        if ($ === '∟') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/∟.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '⊾') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/⊾.svg') center / 100%;"></div>`;
+        }
+
+        // if (($ === '∠') || ($ === '∡')) { cD.style.transform = `scale(2.03389)`; cD.style.top = dy_initial - 67 +'px' }
+
+        if ($ === '∠') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/∠.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '∡') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/∡.svg') center / 100%;"></div>`;
+        }
+
+        // if ($ === '∢') { cD.style.transform = `scale(2.1052)`; cD.style.top = dy_initial - 72 +'px' }
+        if ($ === '∢') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/∢.svg') center / 100%;"></div>`;
+        }
+
+        // if (($ === '⦨') || ($ === '⦩')) { cD.style.transform = `scale(1.72)`; cD.style.top = dy_initial - 44 +'px' }
+        // if (($ === '⦪') || ($ === '⦫')) { cD.style.transform = `scale(1.72)`; cD.style.top = dy_initial - 51 +'px' }
+        // if (($ === '⦬') || ($ === '⦭')) { cD.style.transform = `scale(1.72)`; cD.style.top = dy_initial - 49 +'px' }
+        // if (($ === '⦮') || ($ === '⦯')) { cD.style.transform = `scale(1.72)`; cD.style.top = dy_initial - 49 +'px' }
+        //if (($ === '⦨') || ($ === '⦩') || ($ === '⦪') || ($ === '⦫') || ($ === '⦬') || ($ === '⦭') || ($ === '⦮') || ($ === '⦯')) { cD.style.transform = `scale(1.72)`; cD.style.top = dy_initial - 44 +'px' }
+
+        if ($ === '⦨') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/⦨.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '⦩') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; transform: scaleX(-1); background: url('images/chars/normals/⦨.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '⦪') { 
+            cD.style.top = dy_initial + 6 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; transform: scaleY(-1); background: url('images/chars/normals/⦨.svg') center center / 100% 100%;"></div>`;
+        }
+
+        if ($ === '⦫') { 
+            cD.style.top = dy_initial + 6 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; transform: scaleX(-1) scaleY(-1); background: url('images/chars/normals/⦨.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '⦬') { 
+            cD.style.top = dy_initial + 7 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; transform: scaleX(-1) rotateZ(-90deg); background: url('images/chars/normals/⦨.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '⦭') { 
+            cD.style.top = dy_initial + 7 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; transform: rotateZ(-90deg); background: url('images/chars/normals/⦨.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '⦮') { 
+            cD.style.top = dy_initial + 2 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; transform: rotateZ(90deg); background: url('images/chars/normals/⦨.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '⦯') { 
+            cD.style.top = dy_initial + 2 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; transform: scaleX(-1) rotateZ(90deg); background: url('images/chars/normals/⦨.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '∥') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/parallel.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '∦') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/noParallel.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '∅') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/∅.svg') center / 100%;"></div>`;
+        }
+
+        // if (($ === '∩') || ($ === '∪')) { cD.style.transform = `scale(1.153846)`; cD.style.top = dy_initial - 10 +'px' }
+        if (($ === '∩') || ($ === '∪')) { cD.style.transform = `scale(1.53)`; cD.style.top = dy_initial - 34 +'px' }
+
+        // if ($ === '∫') { cD.style.transform = `scale(1.1875)`; cD.style.top = dy_initial - 18 +'px' }
+        if ($ === '∫') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/∫.svg') center / 100%;"></div>`;
+        }
+
+        // if (($ === '∬') || ($ === '∮') || ($ === '∯') || ($ === '∱') || ($ === '∲') || ($ === '∳')) { 
+            
+        //     cD.style.transform = `scale(1.068493)`; cD.style.top = dy_initial - 41 +'px' 
+        // }
+        if (($ === '∬') || ($ === '∮') || ($ === '∯') || ($ === '∱') || ($ === '∲') || ($ === '∳')) { cD.style.transform = `scale(1.30137)`; cD.style.top = dy_initial - 30 +'px' }
+
+
+        // if (($ === '∭') || ($ === '∰')) { cD.style.transform = `scaleX(0.96) scaleY(1.068493)`; cD.style.top = dy_initial - 41 +'px'; cD.style.left = 2 +'px' }
+        if (($ === '∭') || ($ === '∰')) { cD.style.transform = `scaleX(0.96) scaleY(1.30137)`; cD.style.top = dy_initial - 30 +'px'; cD.style.left = 2 +'px' }
+
+        // if ($ === '⨌') { 
+        //     cD.style.top = dy_initial + 3 +'px'
+        //     cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/⨌.svg') center / 100%;"></div>`;
+        // }
+        if ($ === '⨌') { cD.style.transform = `scaleX(0.76) scaleY(1.30137)`; cD.style.top = dy_initial - 30 +'px'; cD.style.left = 2 +'px' }
+
+        if (($ === '∈') || ($ === '∉')) { cD.style.transform = `scale(1.153846)`; cD.style.top = dy_initial - 10 +'px' }
+        if (($ === '⊂') || ($ === '⊄') || ($ === '⊆') || ($ === '⊈') || ($ === '⊃') || ($ === '⊅')) { cD.style.transform = `scale(1.153846)`; cD.style.top = dy_initial - 10 +'px' }
+        
+        // if ($ === '±') { cD.style.transform = `scale(1)`; cD.style.top = dy_initial + 0 +'px' }
+
+        if ($ === '°') { cD.style.transform = `scale(0.95)`; cD.style.top = dy_initial - 1 +'px' }
+        if ($ === '℃') { cD.innerHTML = '<div class="charPiece" style="transform: scale(0.95); top: -39px; left: 2px;">°</div><div class="charPiece" style="left: 80px;">C</div>' }
+        if ($ === '℉') { cD.innerHTML = '<div class="charPiece" style="transform: scale(0.95); top: -39px; left: 4px;">°</div><div class="charPiece" style="left: 92px;">F</div>' }
+
+        if ($ === '⌫') { cD.style.left = 2 +'px' }
+        if ($ === '█') { cD.style.top = dy_initial - 3 +'px' }
+
+        if ($ === '•') { cD.style.transform = `scale(1.08)`; cD.style.top = dy_initial - 7 +'px' }
+        if ($ === '‣') { cD.style.transform = `scale(1.2)`; cD.style.top = dy_initial - 12 +'px' }
+
+        var dy_pointers = -22
+        if ($ === '◄') { cD.style.transform = `scale(1.2)`; cD.style.top = dy_initial + dy_pointers +'px' }
+        if ($ === '►') { cD.textContent = '◄'; cD.style.transform = `scaleX(-1.2) scaleY(1.2)`; cD.style.top = dy_initial + dy_pointers +'px' }
+        if ($ === '◅') { cD.style.transform = `scale(1.2)`; cD.style.top = dy_initial + dy_pointers +'px' }
+        if ($ === '▻') { cD.style.transform = `scale(1.2)`; cD.style.top = dy_initial + dy_pointers +'px' }
+
+        if ($ === '⇑') { cD.textContent = '⇐'; cD.style.transform = `rotateZ(90deg)`; cD.style.top = dy_initial +'px' }
+        if ($ === '⇓') { cD.textContent = '⇐'; cD.style.transform = `rotateZ(-90deg)`; cD.style.top = dy_initial + 7 +'px' }
+        if ($ === '⇐') { cD.style.top = dy_initial + 2 +'px' }
+        if ($ === '⇒') { cD.textContent = '⇐'; cD.style.transform = `rotateZ(180deg)`; cD.style.top = dy_initial + 5 +'px' }
+        // if ($ === '⇔') { cD.style.transform = `scale(1.18)`; cD.style.top = dy_initial - 20 +'px' }
+        if ($ === '⇔') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/<=>.svg') center / 100%;"></div>`;
+        }
+
+        if ($ === '⇧') { cD.style.fontFamily = 'Arial'; cD.textContent = '⇩'; cD.style.transform = `scale(1.01851852) rotateZ(180deg)`; cD.style.top = dy_initial - 2 +'px'; }
+        
+        if (($ === '➢') || ($ === '➣')) { cD.style.transform = `scale(1.15)`; cD.style.top = dy_initial - 4 +'px' }
+        
+        if ($ === '➭') { cD.style.transform = `scale(1.4)`; cD.style.top = dy_initial - 1 +'px' }
+
+        if (($ === '│') || ($ === '├') || ($ === '└') || ($ === '─')) { cD.style.top = dy_initial - 4 +'px' }
+        if ($ === '─') { cD.style.transform = `scaleX(1.495868) scaleY(-1.013)`; cD.style.top = dy_initial + 10 +'px'; cD.style.left = 1 +'px' }
+        if ($ === '│') { cD.style.left = 7 +'px' }
+        
+        if ($ === '└') {
+            cD.style.top = dy_initial - 1 +'px' 
+            cD.style.left = 0 +'px'
+            cD.innerHTML = `
+            <div class="charPiece" style="top: -39px;">└</div>
+            <div class="charPiece" style="transform: scaleX(0.5); top: -39px; left: 102px">─</div>
+            <div class="charPiece" style="transform: scaleX(0.7); top: -53px; left: 91px; color: white">─</div>`; 
+        }
+        
+        if ($ === '├') {
+            cD.style.top = dy_initial - 1 +'px'
+            cD.style.left = 0 +'px'
+            cD.innerHTML = `
+            <div class="charPiece" style="top: -39px;">├</div>
+            <div class="charPiece" style="transform: scaleX(0.5); top: -39px; left: 102px">─</div>
+            <div class="charPiece" style="transform: scaleX(0.7); top: -53px; left: 91px; color: white">─</div>`; 
+        }
+
+        if ($ === '■') { cD.style.transform = `scale(2.15)`; cD.style.top = dy_initial - 25 +'px' }
+        if ($ === '□') { cD.style.transform = `scale(1.58)`; cD.style.top = dy_initial - 37 +'px' }
+        if ($ === '▣') { cD.style.transform = `scale(1.03448)`; cD.style.top = dy_initial - 1 +'px' }
+
+        var dy_triangles = 0
+        if ($ === '▲') { cD.style.transform = `scaleX(1.0373134) scaleY(1.034188)`; cD.style.top = dy_initial + dy_triangles - 1 +'px' }
+        if ($ === '▼') { cD.style.transform = `scaleX(1.0220588) scaleY(0.8963)`; cD.style.top = dy_initial + dy_triangles + 4 +'px' }
+        if ($ === '◀') { cD.style.transform = `scaleX(1.1) scaleY(0.891026)`; cD.style.top = dy_initial + dy_triangles + 2 +'px' }
+        if ($ === '▶') { cD.style.transform = `scale(1)`; cD.style.top = dy_initial + dy_triangles + 5 +'px' }
+        if ($ === '△') { cD.style.transform = `scaleX(1.03731343) scaleY(1.034188)`; cD.style.top = dy_initial + dy_triangles - 1 +'px' }
+        if ($ === '▽') { cD.textContent = '△'; cD.style.transform = `rotateZ(180deg) scaleX(1.03731343) scaleY(1.034188)`; cD.style.top = dy_initial + dy_triangles + 9 +'px' }
+        if ($ === '◁') { cD.textContent = '△'; cD.style.transform = `rotateZ(270deg) scaleX(1.03731343) scaleY(1.034188)`; cD.style.top = dy_initial + dy_triangles + 5 +'px' }
+        if ($ === '▷') { cD.textContent = '△'; cD.style.transform = `rotateZ(90deg) scaleX(1.03731343) scaleY(1.034188)`; cD.style.top = dy_initial + dy_triangles + 4 +'px' }
+
+        // if ($ === '◇') {
+        //     cD.style.top = dy_initial + 4 +'px'
+        //     cD.innerHTML = `<div style="width: 129px; height: 129px; background-image: url('images/chars/normals/◇.svg'); background-size: cover;"></div>`; 
+        // }
+
+        // if ($ === '◆') {
+        //     cD.style.top = dy_initial + 4 +'px'
+        //     cD.innerHTML = `<div style="width: 129px; height: 129px; background-image: url('images/chars/normals/◆.svg'); background-size: cover;"></div>`; 
+        // }
+
+
+        if ($ === '◇') { cD.textContent = '□'; cD.style.transform = `rotateZ(45deg) scale(1.5)`; cD.style.top = dy_initial - 26 +'px'; cD.style.left = 32 +'px' }
+        if ($ === '◆') { cD.textContent = '■'; cD.style.transform = `rotateZ(45deg) scale(2.038)`; cD.style.top = dy_initial - 20 +'px'; cD.style.left = 20 +'px' }
+        if ($ === '◈') { cD.style.transform = `scale(1.1838)`; cD.style.top = dy_initial - 4 +'px' }
+
+        // if ($ === '◈') {
+        //     cD.style.top = dy_initial + 4 +'px'
+        //     cD.innerHTML = `<div style="width: 129px; height: 129px; background-image: url('images/chars/normals/◈.svg'); background-size: cover;"></div>`; 
+        // }
+
+        if (($ === '⬟') || ($ === '⬠')) { cD.style.transform = `scale(1.110)`; cD.style.top = dy_initial - 16 +'px' }
+
+        if (($ === '⬡') || ($ === '⬢')) { cD.style.transform = `scale(1.095)`; cD.style.top = dy_initial - 21 +'px' }
+
+        if ($ === '⬣') { cD.style.transform = `scale(0.98)`; cD.style.top = dy_initial - 18 +'px' }
+
+        // if ($ === '◉') {
+        //     cD.style.top = dy_initial + 4 +'px'
+        //     cD.innerHTML = `<div style="width: 120px; height: 120px; background-image: url('images/chars/normals/◉.svg'); background-size: cover;"></div>`; 
+        // }
+
+        var ball_size = 140
+
+        if ($ === '◉') {
+            cD.style.top = dy_initial + 4 +'px'
+            cD.innerHTML = `<div style="width: ${ball_size}px; height: ${ball_size}px; background-image: url('images/chars/normals/◉.svg'); background-size: cover;"></div>`; 
+        }
+
+        if ($ === '○') {
+            cD.style.top = dy_initial + 4 +'px'
+            cD.innerHTML = `<div style="width: ${ball_size}px; height: ${ball_size}px; background-image: url('images/chars/normals/○.svg'); background-size: cover;"></div>`; 
+        }
+
+        if ($ === '●') {
+            cD.style.top = dy_initial + 4 +'px'
+            cD.innerHTML = `<div style="width: ${ball_size}px; height: ${ball_size}px; background-image: url('images/chars/normals/●.svg'); background-size: cover;"></div>`; 
+        }
+
+        if ($ === '◐') {
+            cD.style.top = dy_initial + 4 +'px'
+            cD.innerHTML = `<div style="width: ${ball_size}px; height: ${ball_size}px; background-image: url('images/chars/normals/◐.svg'); background-size: cover;"></div>`; 
+        }
+
+        if ($ === '◑') {
+            cD.style.top = dy_initial + 4 +'px'
+            cD.innerHTML = `<div style="width: ${ball_size}px; height: ${ball_size}px; background-image: url('images/chars/normals/◑.svg'); background-size: cover;"></div>`; 
+        }
+
+        if ($ === '◔') {
+            cD.style.top = dy_initial + 4 +'px'
+            cD.innerHTML = `<div style="width: ${ball_size}px; height: ${ball_size}px; background-image: url('images/chars/normals/◔.svg'); background-size: cover;"></div>`; 
+        }
+
+        if ($ === '◕') {
+            cD.style.top = dy_initial + 4 +'px'
+            cD.innerHTML = `<div style="width: ${ball_size}px; height: ${ball_size}px; background-image: url('images/chars/normals/◕.svg'); background-size: cover;"></div>`; 
+        }
+
+        if ($ === '©') { cD.style.top = dy_initial - 8 +'px' }
+        if ($ === '®') { cD.style.top = dy_initial - 8 +'px' }
+
+        if ($ === '✦') { cD.style.transform = `scale(1.101694)`; cD.style.top = dy_initial + 7 +'px' }
+        // if ($ === '✦') { cD.style.transform = `scale(1.2)`; cD.style.top = dy_initial + 6 +'px' }
+        if ($ === '★') { cD.style.transform = `scaleX(0.98148148) scaleY(0.94968553)`; cD.style.top = dy_initial - 1 +'px' }
+        if (($ === '✩') || ($ === '✯')) { cD.style.transform = `scale(1.27)`; cD.style.top = dy_initial + 6 +'px' }
+        if ($ === '✰') { cD.style.transform = `scale(1.24)`; cD.style.top = dy_initial + 6 +'px'; cD.style.left = 2 +'px' } // 3D Star 
+        if ($ === '⍟') { cD.style.transform = `scale(1.346154)`; cD.style.top = dy_initial - 3 +'px' }
+        if ($ === '✪') { cD.style.transform = `scale(1.16666)`; cD.style.top = dy_initial + 6 +'px' }
+
+        if ($ === '☻') { cD.style.transform = `scale(1.3333)`; cD.style.top = dy_initial - 14 +'px' }
+        if ($ === '☼') { cD.style.transform = `scale(1.16666)`; cD.style.top = dy_initial + 5 +'px'; cD.style.left = 2 +'px' }
+        if ($ === '☾') { cD.style.transform = `scale(1.16666)` }
+
+        if ($ === '♂') {
+            cD.style.top = dy_initial + 0 +'px'
+            // cD.innerHTML = `<div style="width: 146px; height: 146px; background-image: url('images/chars/normals/♂.svg'); background-size: cover;"></div>`; 
+            cD.innerHTML = `<div style="width: 154px; height: 154px; background-image: url('images/chars/normals/♂.svg'); background-size: cover;"></div>`; 
+        }
+
+        if ($ === '♀') {
+            cD.style.top = dy_initial + 0 +'px'
+            // cD.innerHTML = `<div style="width: 146px; height: 146px; background-image: url('images/chars/normals/♀.svg'); background-size: cover;"></div>`; 
+            cD.innerHTML = `<div style="width: 154px; height: 154px; background-image: url('images/chars/normals/♀.svg'); background-size: cover;"></div>`; 
+        }
+
+        // if (($ === '♤') || ($ === '♠')) { cD.style.transform = `scaleX(1.1)`; cD.style.top = dy_initial + 0 +'px' }
+        if (($ === '♡') || ($ === '♥')) { cD.style.transform = `scaleX(1.15)`; cD.style.top = dy_initial + 0 +'px' }
+        // if (($ === '♢') || ($ === '♦')) { cD.style.transform = `scale(1)`; cD.style.top = dy_initial + 0 +'px' }
+        // if (($ === '♧') || ($ === '♣')) { cD.style.transform = `scale(1)`; cD.style.top = dy_initial + 0 +'px' }
+
+        if ($ === '♪') { cD.style.transform = `scale(1.15)`; cD.style.top = dy_initial + 2 +'px' }
+        if ($ === '✞') { cD.style.transform = `scale(1.4)`; cD.style.top = dy_initial + 6 +'px' }
+        if ($ === '❅') { cD.style.transform = `scale(1.39)`; cD.style.top = dy_initial + 6 +'px' }
+        if ($ === '￼') { 
+            cD.style.top = dy_initial + 3 +'px'
+            cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/OBJ.svg') center / 100%;"></div>`;
+        }
+        // if ($ === '�') { 
+        //     cD.style.top = dy_initial + 3 +'px'
+        //     cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/unknown.svg') center / 100%;"></div>`;
+        // }
+
+        // if ($ === 'æ') { 
+        //     cD.style.top = dy_initial + 3 +'px'
+        //     cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/check_no.svg') center / 100%;"></div>`;
+        // }
+    })
+}
+
+
+/*  TODO:            3 ▶ Verdial Bold
+◈──────────────────────────────────────────────────────◈ */
+
+if (Font_In_Development.name === 'Verdial Bold') {
+
+    sheetsGroup.classList.add(Font_In_Development.baseFontClass)
+    
+    var dy_initial
+
+    if (sheetsGroup.classList.contains('size3')) { dy_initial = 0 }
+    if (sheetsGroup.classList.contains('size7')) { dy_initial = 0 }
+
+    var charsDraws = document.querySelectorAll('.charDraw')
+
+    charsDraws.forEach(function (cD) {
+
+        cD.style.fontSize = Font_In_Development.fontSizeOnSheets +'px'
+        cD.style.position = 'relative'
+        cD.style.top = dy_initial +'px'
+        var $ = cD.textContent
+
+        applyBold(cD, 3.8, 50)
+
+        if (($ === 'ª') || ($ === 'º')) { applyBold(cD, 2, 50) }
+    })
+}
+
+
+/*  TODO:        2 ▶ Apply Bold
+◈──────────────────────────────────────────────────────◈ */
+
+function applyBold(cD, addWeight, sharpness) {
+
+    isBold = true
+
+    // Esta versão de aplicar negrito (com 'textShadow') é melhor otimizada do que a do 'filter', mas só funciona para textos, para imagens não.
+
+    // var addWeight = 3.8
+    // var sharpness = 50
+
+    {
+        var textShadowValue = `0px 0px 0px black`
+
+        for (i = 0; i < sharpness; i++) {
+
+            textShadowValue += `, 0px 0px ${addWeight}px black`
+        }
+
+        cD.style.textShadow = textShadowValue
+
+        // cD.style.transform = `scale(1.08)`;
+    }
+
+
+
+
+    // Esta versão de aplicar negrito (com 'filter') é muito pesada, a página fica muito lenta.
+
+    // var addWeight = 1.3
+    // var sharpness = 40
+
+    // {
+    //     cD.style.filter = `drop-shadow(0px 0px ${addWeight}px black)`
+
+    //     var copy = cD.cloneNode(true)
+
+    //     copy.style.position = 'fixed'
+
+    //     for (i = 1; i <= sharpness; i++) {
+
+    //         window['copy'+ i] = copy.cloneNode(true)
+
+    //         cD.insertAdjacentElement('beforeend', window['copy'+ i])
+    //     }  
+
+    //     cD.style.transform = `scale(1.122)`;
+    // }
+
+
+
+
+
+    // #1 - Fino
+    // cD.style.filter = 'drop-shadow(0px 0px 0.5px black)'
+
+    // var copy1 = cD.cloneNode(true); copy1.style.position = 'fixed'; cD.insertAdjacentElement('beforeend', copy1)
+    // var copy2 = cD.cloneNode(true); copy2.style.position = 'fixed'; cD.insertAdjacentElement('beforeend', copy2)
+    // var copy3 = cD.cloneNode(true); copy3.style.position = 'fixed'; cD.insertAdjacentElement('beforeend', copy3)
+    // var copy4 = cD.cloneNode(true); copy4.style.position = 'fixed'; cD.insertAdjacentElement('beforeend', copy4)
+    // cD.style.transform = `scale(1.122)`;
+}
+
+
+/*  TODO:        2 ▶ Bug Fix: 'check no' character (𐄂) as image.
+◈──────────────────────────────────────────────────────◈ */
+
+var charsDraws = document.querySelectorAll('.charDraw')
+
+charsDraws.forEach(function (cD) {
+
+    var $ = cD.textContent
+
+    if ($ === 'æ') { 
+
+        if (isBold) {
+            
+            cD.innerHTML = 
+            `<div style="width: 100%; height: 100%; background: url('images/chars/normals/check_no_bold.svg') center / 100%;"></div>`;
+
+        } else {
+            
+            cD.innerHTML = 
+            `<div style="width: 100%; height: 100%; background: url('images/chars/normals/check_no.svg') center / 100%;"></div>`;
+        }
+    }
+})
+
+
+
+
+
+
+
+
+/*
+
+if ($ === '') { cD.style.transform = `scale(1)`; cD.style.top = dy_initial + 0 +'px' }
+
+if (($ === '') || ($ === '')) { cD.style.transform = `scale(1)`; cD.style.top = dy_initial + 0 +'px' }
+
+if (($ === '') || ($ === '') || ($ === '')) { cD.style.transform = `scale(1)`; cD.style.top = dy_initial + 0 +'px' }
+
+if ($ === '') { 
+    cD.style.top = dy_initial + 3 +'px'
+    cD.innerHTML = `<div style="width: 100%; height: 100%; background: url('images/chars/normals/.svg') center / 100%;"></div>`;
+}
+*/
+
+
+
+// sequentialTextGenerator(1, 8, "`var copy${i} = cD.cloneNode(true); copy${i}.style.position = 'fixed'; cD.insertAdjacentElement('beforeend', copy${i})`")
+
+
+
+
+
+/* 
+document.querySelector('.btnDownload').addEventListener('click', (event) =>
+  event.target.href = sheetsGroup.toDataURL()
+);
+ */
+
+</script>
+</body>
+</html>
