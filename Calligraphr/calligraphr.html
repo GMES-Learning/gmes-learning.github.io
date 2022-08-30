@@ -9,19 +9,14 @@
     <meta name="description" content="Descrição da página. Especificar uma descrição que inclua palavras-chave relacionadas ao conteúdo da página pode ajudar a tornar a página mais alta nas pesquisas realizadas nos mecanismos de busca.">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <!--<link rel="apple-touch-icon" href="../apple-touch-icon.png">-->
-<!-- 
-    <link href='../../Tec OP/hi-techCore/styles/css/downloadFonts.css' rel='stylesheet'>
-    <link href='../../Tec OP/hi-techCore/styles/css/normalize.css' rel='stylesheet'>  
-    <link href='../../Tec OP/hi-techCore/styles/css/gmes_normalize.css' rel='stylesheet'>
-    <link href='../../Tec OP/hi-techCore/styles/css/defaults.css' rel='stylesheet'>
- -->
+
+    <link href='styles/COPY_normalize.css' rel='stylesheet'>  
+    <link href='styles/COPY_gmes_normalize.css' rel='stylesheet'>
+    <link href='styles/COPY_defaults.css' rel='stylesheet'>
+
 <style>
 
-body {
-    font-family: 'Times New Roman', Times, Georgia, serif;
-    font-size: 19px;
-    line-height: 1.5;
-}
+/*····································································◈ Calligraphr Sheets Generator */
 
 .charsBox {
     padding-top: 9px;
@@ -142,7 +137,7 @@ body {
     height: 100%;
 }
 
-/*····································································◈ Build characters */
+/*··································◈ Build characters */
 
 .charPiece {
     font-family: inherit;
@@ -156,7 +151,7 @@ body {
     transform: scale(1.01694915);
 }
 
-/*····································································◈  Sizes: */
+/*··································◈  Sizes: */
 
 .size3 .cell {
     height: 260px;
@@ -191,7 +186,7 @@ body {
     height: 436px;
 }
 
-/*····································································◈  Buttons: */
+/*··································◈  Buttons: */
 
 .show_btns {
     font-family: Helvetica, Arial, sans-serif;
@@ -923,8 +918,6 @@ for(n in $fonts) {
     //··································◈  CSS para baixar as fontes
 
     if ($fonts[n].download === true) {
-
-        csl.log($fonts[n].class)
 
         var folderName = $fonts[n].class
 
@@ -2302,3 +2295,137 @@ document.querySelector('.btnDownload').addEventListener('click', (event) =>
 </script>
 </body>
 </html>
+
+<!-- 
+
+/*····································································◈ Geral */
+
+/*··································◈ gmes_normalize.css */
+
+/*·················◈ Spaces */
+
+* { /* <- Talvez prejudique a performance. */
+    margin: 0;
+    padding: 0;
+}
+
+body { margin: 0.5rem; }
+h1 { margin: 1.34rem 0; }
+h2 { margin: 1.245rem 0; }
+h3 { margin: 1.17rem 0; }
+h4 { margin: 1.33rem 0; }
+h5 { margin: 1.386rem 0; }
+h6 { margin: 1.561rem 0; }
+p { margin: 0.95rem 0; }
+
+ul, ol {
+    margin: 1rem 0px;
+    padding-left: 2.5rem;
+}
+
+/*·················◈ Medias */
+
+img, video {
+    width: auto;
+}
+
+/*·················◈ Forms */
+
+button, input, select, textarea { 
+    font-family : inherit; 
+    font-size : 100%; 
+    box-sizing: border-box; 
+} 
+
+textarea { 
+    overflow: auto; 
+}
+
+/*··································◈ Global New Box Model */
+
+html {
+    box-sizing: border-box;
+} 
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/*··································◈ Others */
+
+body {
+    font-family: 'Times New Roman', Times, Georgia, serif;
+    line-height: 1.5;
+}
+
+.central {
+    max-width: 800px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    color: deepskyblue;
+    background: linear-gradient(to bottom, hsl(199, 100%, 90%), hsl(199, 100%, 50%), hsl(187, 100%, 87%), hsl(201, 100%, 50%)); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent; 
+}
+
+* {
+    font-size: 19px; 
+}
+
+div, header, nav, main, article, section, aside, footer {
+    font-size: 0;
+}
+
+h1 { font-size: 62px; }
+h2 { font-size: 54px; }
+h3 { font-size: 46px; }
+h4 { font-size: 38px; }
+h5 { font-size: 30px; }
+h6 { font-size: 22px; }
+
+dt { 
+    font-weight: bold; 
+}
+
+dt, dd { 
+    display: inline;
+}
+
+dl > div:not(:nth-last-of-type(1)) {
+    margin-bottom: $margin_vertical;
+}
+
+details {
+    border: 1px solid deepskyblue;
+    border-radius: 20px;
+    margin: 16px 20px;
+}
+
+details > summary:nth-of-type(1) {
+    line-height: 40px;
+    padding-left: 16px;
+    padding-right: 12px;
+    border: 1px solid hsla(0, 0%, 100%, 0);
+    border-radius: 19px;
+    color: deepskyblue;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+details > .content {
+    padding: 9px 12px 9px 16px;
+}
+
+details[open] > summary:nth-of-type(1) {
+
+    border: 1px solid deepskyblue;
+    border-top-color: hsla(0, 0%, 100%, 0);
+}
+
+ -->
