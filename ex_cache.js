@@ -9,5 +9,5 @@ if('serviceWorker' in navigator) {
 
     navigator.serviceWorker
         .register('/ex_cache_serviceWorker.js')
-        .then(() => console.log('Service Worker Registrado!'));
+        .then(() => console.log('Service Worker Registrado!'))
 }
