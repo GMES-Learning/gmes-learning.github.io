@@ -3,10 +3,10 @@ self.addEventListener('install', e => {
     e.waitUntil(
         caches.open('cache-name').then(function(cache) {
             return cache.addAll([
-                '/',
-                '/index.html',
-                '/ex_cache.css',
-                '/ex_cache.js'
+                '/Client Side Storing Files - API Cache/',
+                '/Client Side Storing Files - API Cache/index.html',
+                '/Client Side Storing Files - API Cache/ex_cache.css',
+                '/Client Side Storing Files - API Cache/ex_cache.js'
             ])
         })
     )
