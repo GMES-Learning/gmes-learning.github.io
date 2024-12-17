@@ -1,9 +1,10 @@
 
 self.addEventListener('install', e => {
     e.waitUntil(
-        caches.open('cache-name-4').then(function(cache) {
+        caches.open('cache-name-50').then(function(cache) {
             return cache.addAll([
                 '/',
+                '/index.html',
                 '/cache/index.html',
                 '/cache/style.css',
                 '/cache/script.js'

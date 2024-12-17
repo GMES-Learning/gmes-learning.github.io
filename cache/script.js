@@ -8,6 +8,6 @@ h1.textContent = 'Cache Example'
 if('serviceWorker' in navigator) {
 
     navigator.serviceWorker
-        .register('/ex_cache_serviceWorker.js')
+        .register('/cache/serviceWorker.js')
         .then(() => console.log('Service Worker Registrado!'))
 }
