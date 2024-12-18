@@ -1,7 +1,7 @@
 
 self.addEventListener('install', e => {
     e.waitUntil(
-        caches.open('cache-name-52').then(function(cache) {
+        caches.open('cache-name-53').then(function(cache) {
             return cache.addAll([
                 '/',
                 '/index.html',
