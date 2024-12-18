@@ -1,4 +1,6 @@
 
+// Arquivo da aplicação Cache
+
 self.addEventListener('install', e => {
     e.waitUntil(
         caches.open('cache-name-53').then(function(cache) {
