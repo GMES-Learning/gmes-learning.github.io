@@ -32,7 +32,7 @@ self.addEventListener('fetch', evt => {
                 console.log('[response]')
                 console.log(response) 
                 console.log('----')
-                response || fetch(evt.request)
+                return response || fetch(evt.request)
             }
         )
     )
