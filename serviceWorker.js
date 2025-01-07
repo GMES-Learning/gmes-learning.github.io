@@ -1,10 +1,13 @@
 
 // Arquivo da aplicação Cache
 
-self.addEventListener('install', e => {
-    e.waitUntil(
+self.addEventListener('install', evt => {
+
+    evt.waitUntil(
         caches.open('cache-name-56').then(function(cache) {
             return cache.addAll([
+                
+                // Os caminhos dos arquivos são relativos à origem do site.
                 '/',
                 '/index.html',
                 '/cache/index.html',
@@ -14,12 +17,23 @@ self.addEventListener('install', e => {
         })
     )
 })
-   
-self.addEventListener('fetch', e => {
 
-    console.log(e.request.url)
+self.addEventListener('fetch', evt => {
 
-    e.respondWith(
-        caches.match(e.request).then(response => response || fetch(e.request))
+    console.log(evt.request.url) // URL da solicitação.
+
+    evt.respondWith(
+        // caches.match(evt.request).then(response => response || fetch(evt.request))
+    
+        caches.match(evt.request).then(
+            
+            response => {
+
+                console.log('[response]')
+                console.log(response) 
+                console.log('----')
+                response || fetch(evt.request)
+            }
+        )
     )
 })
