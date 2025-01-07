@@ -23,17 +23,6 @@ self.addEventListener('fetch', evt => {
     console.log(evt.request.url) // URL da solicitação.
 
     evt.respondWith(
-        // caches.match(evt.request).then(response => response || fetch(evt.request))
-    
-        caches.match(evt.request).then(
-            
-            response => {
-
-                console.log('[response]')
-                console.log(response) 
-                console.log('----')
-                return response || fetch(evt.request)
-            }
-        )
+        caches.match(evt.request).then(response => response || fetch(evt.request))
     )
 })
