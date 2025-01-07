@@ -4,7 +4,7 @@
 self.addEventListener('install', evt => {
 
     evt.waitUntil(
-        caches.open('cache-name-57').then(function(cache) {
+        caches.open('cache-name-58').then(function(cache) {
             return cache.addAll([
                 
                 // Os caminhos dos arquivos são relativos à origem do site.
