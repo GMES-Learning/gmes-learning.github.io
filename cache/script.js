@@ -12,19 +12,3 @@ if('serviceWorker' in navigator) {
         .register('/serviceWorker.js') 
         .then(() => console.log('Service Worker Registrado!'))
 }
-
-
-
-h1.addEventListener('click', function(evt) {
-
-    const promise = 
-    fetch('https://gmes-learning.github.io/dogs.json')
-
-    console.log(promise)
-
-    promise.then(function (response) {
-
-        console.log(promise)
-        console.log('Received response: '+ response.status)
-    })
-})
