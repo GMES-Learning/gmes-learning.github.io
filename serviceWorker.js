@@ -20,7 +20,6 @@ self.addEventListener('install', evt => {
 
 self.addEventListener('fetch', evt => {
 
-    console.log('Ok')
     console.log(evt.request.url) // URL da solicitação.
 
     evt.respondWith(
